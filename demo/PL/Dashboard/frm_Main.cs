@@ -21,12 +21,12 @@ namespace demo.PL.Dashboard
         private void frm_Main_Load(object sender, EventArgs e)
         {
             //pnlSideBarMenu.BackColor = Color.Green;
-            PrivateFontCollection arabic_font = new PrivateFontCollection();
-            arabic_font.AddFontFile(@"G:\Vazirmatn-VariableFont_wght.ttf");
-            foreach(Control c in this.Controls)
-            {
-                c.Font = new Font(arabic_font.Families[0], 15, FontStyle.Regular);
-            }
+            //PrivateFontCollection arabic_font = new PrivateFontCollection();
+            //arabic_font.AddFontFile(@"G:\Vazirmatn-VariableFont_wght.ttf");
+            //foreach(Control c in this.Controls)
+            //{
+            //    c.Font = new Font(arabic_font.Families[0], 15, FontStyle.Regular);
+            //}
 
         }
     }
