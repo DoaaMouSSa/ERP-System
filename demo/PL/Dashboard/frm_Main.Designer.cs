@@ -289,7 +289,6 @@
             // bunifuGradientPanel9
             // 
             this.bunifuGradientPanel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(174)))), ((int)(((byte)(253)))));
-            this.bunifuGradientPanel9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuGradientPanel9.BackgroundImage")));
             this.bunifuGradientPanel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bunifuGradientPanel9.Controls.Add(this.button2);
             this.bunifuGradientPanel9.Controls.Add(this.label4);
