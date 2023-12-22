@@ -29,5 +29,15 @@ namespace demo.PL.Dashboard
             //}
 
         }
+
+        private void bunifuButton3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

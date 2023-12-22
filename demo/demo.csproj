@@ -236,14 +236,22 @@
     <Content Include="assets\icons\Dashboard_s.png" />
     <Content Include="assets\icons\home_b.png" />
     <Content Include="assets\icons\home_s.png" />
+    <None Include="assets\icons\HR.png" />
+    <None Include="assets\icons\HR %281%29.png" />
     <Content Include="assets\icons\HR_b.png" />
     <Content Include="assets\icons\HR_s.png" />
     <Content Include="assets\icons\MarktingAndSales_b.png" />
     <Content Include="assets\icons\MarktingAndSales_s.png" />
     <Content Include="assets\icons\notification_b.png" />
     <Content Include="assets\icons\notification_s.png" />
+    <None Include="assets\icons\search.png" />
     <Content Include="assets\icons\setting_b.png" />
     <Content Include="assets\icons\setting_s.png" />
+    <None Include="assets\icons\solid_home.png" />
+    <None Include="assets\icons\solid_accounting.png" />
+    <None Include="assets\icons\solid_accounting 1.png" />
+    <None Include="assets\icons\store.png" />
+    <None Include="assets\icons\store %281%29.png" />
     <Content Include="assets\icons\store_b.png" />
     <Content Include="assets\icons\store_s.png" />
   </ItemGroup>
