@@ -42,7 +42,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.userNameWarnig = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
+            this.lblUserNameRequired = new System.Windows.Forms.Label();
+            this.lblPwdRequired = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -95,7 +98,7 @@
             // 
             // txtUserName
             // 
-            this.txtUserName.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtUserName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(254)))));
             this.txtUserName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUserName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
             this.txtUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
@@ -153,14 +156,13 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(254)))));
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
             this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.txtPassword.Location = new System.Drawing.Point(61, 261);
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(257, 26);
             this.txtPassword.TabIndex = 8;
             this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -190,7 +192,12 @@
             // 
             // panel4
             // 
+            this.panel4.AutoSize = true;
+            this.panel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(254)))));
+            this.panel4.Controls.Add(this.lblPwdRequired);
+            this.panel4.Controls.Add(this.lblUserNameRequired);
+            this.panel4.Controls.Add(this.userNameWarnig);
             this.panel4.Controls.Add(this.btnExit);
             this.panel4.Controls.Add(this.btnLogin);
             this.panel4.Controls.Add(this.txtUserName);
@@ -201,11 +208,21 @@
             this.panel4.Controls.Add(this.panel3);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(149)))), ((int)(((byte)(248)))));
-            this.panel4.Location = new System.Drawing.Point(305, 0);
+            this.panel4.Location = new System.Drawing.Point(316, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(424, 477);
+            this.panel4.Size = new System.Drawing.Size(413, 477);
             this.panel4.TabIndex = 13;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            // 
+            // userNameWarnig
+            // 
+            this.userNameWarnig.AutoSize = true;
+            this.userNameWarnig.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold);
+            this.userNameWarnig.ForeColor = System.Drawing.Color.LightCoral;
+            this.userNameWarnig.Location = new System.Drawing.Point(140, 325);
+            this.userNameWarnig.Name = "userNameWarnig";
+            this.userNameWarnig.Size = new System.Drawing.Size(0, 19);
+            this.userNameWarnig.TabIndex = 13;
             // 
             // btnExit
             // 
@@ -222,6 +239,26 @@
             this.btnExit.Text = "خروج";
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // lblUserNameRequired
+            // 
+            this.lblUserNameRequired.AutoSize = true;
+            this.lblUserNameRequired.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblUserNameRequired.ForeColor = System.Drawing.Color.LightCoral;
+            this.lblUserNameRequired.Location = new System.Drawing.Point(140, 211);
+            this.lblUserNameRequired.Name = "lblUserNameRequired";
+            this.lblUserNameRequired.Size = new System.Drawing.Size(0, 19);
+            this.lblUserNameRequired.TabIndex = 14;
+            // 
+            // lblPwdRequired
+            // 
+            this.lblPwdRequired.AutoSize = true;
+            this.lblPwdRequired.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblPwdRequired.ForeColor = System.Drawing.Color.LightCoral;
+            this.lblPwdRequired.Location = new System.Drawing.Point(140, 290);
+            this.lblPwdRequired.Name = "lblPwdRequired";
+            this.lblPwdRequired.Size = new System.Drawing.Size(0, 19);
+            this.lblPwdRequired.TabIndex = 15;
             // 
             // frm_Login
             // 
@@ -262,5 +299,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Label userNameWarnig;
+        private System.Windows.Forms.Label lblPwdRequired;
+        private System.Windows.Forms.Label lblUserNameRequired;
     }
 }

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace demo.BL.Validation.ErrorMsg
 {
-    internal class ErrorMsg
+    public class ErrorMsg
     {
+        public string requiredUserName { get; set; }
     }
 }

@@ -60,12 +60,6 @@
     <Compile Include="PL\Authentication\frm_Login.Designer.cs">
       <DependentUpon>frm_Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="PL\Authentication\test.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PL\Authentication\test.Designer.cs">
-      <DependentUpon>test.cs</DependentUpon>
-    </Compile>
     <Compile Include="PL\Dashboard\frm_Main.cs">
       <SubType>Form</SubType>
     </Compile>

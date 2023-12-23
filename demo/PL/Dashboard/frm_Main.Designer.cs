@@ -1,4 +1,5 @@
-﻿namespace demo.PL.Dashboard
+﻿using Bunifu.Framework.UI;
+namespace demo.PL.Dashboard
 {
     partial class frm_Main
     {
