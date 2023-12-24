@@ -42,10 +42,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.lblPwdRequired = new System.Windows.Forms.Label();
+            this.lblUserNameRequired = new System.Windows.Forms.Label();
             this.userNameWarnig = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
-            this.lblUserNameRequired = new System.Windows.Forms.Label();
-            this.lblPwdRequired = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -214,6 +214,26 @@
             this.panel4.TabIndex = 13;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
+            // lblPwdRequired
+            // 
+            this.lblPwdRequired.AutoSize = true;
+            this.lblPwdRequired.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblPwdRequired.ForeColor = System.Drawing.Color.LightCoral;
+            this.lblPwdRequired.Location = new System.Drawing.Point(140, 290);
+            this.lblPwdRequired.Name = "lblPwdRequired";
+            this.lblPwdRequired.Size = new System.Drawing.Size(0, 19);
+            this.lblPwdRequired.TabIndex = 15;
+            // 
+            // lblUserNameRequired
+            // 
+            this.lblUserNameRequired.AutoSize = true;
+            this.lblUserNameRequired.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblUserNameRequired.ForeColor = System.Drawing.Color.LightCoral;
+            this.lblUserNameRequired.Location = new System.Drawing.Point(140, 211);
+            this.lblUserNameRequired.Name = "lblUserNameRequired";
+            this.lblUserNameRequired.Size = new System.Drawing.Size(0, 19);
+            this.lblUserNameRequired.TabIndex = 14;
+            // 
             // userNameWarnig
             // 
             this.userNameWarnig.AutoSize = true;
@@ -239,26 +259,6 @@
             this.btnExit.Text = "خروج";
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // lblUserNameRequired
-            // 
-            this.lblUserNameRequired.AutoSize = true;
-            this.lblUserNameRequired.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblUserNameRequired.ForeColor = System.Drawing.Color.LightCoral;
-            this.lblUserNameRequired.Location = new System.Drawing.Point(140, 211);
-            this.lblUserNameRequired.Name = "lblUserNameRequired";
-            this.lblUserNameRequired.Size = new System.Drawing.Size(0, 19);
-            this.lblUserNameRequired.TabIndex = 14;
-            // 
-            // lblPwdRequired
-            // 
-            this.lblPwdRequired.AutoSize = true;
-            this.lblPwdRequired.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblPwdRequired.ForeColor = System.Drawing.Color.LightCoral;
-            this.lblPwdRequired.Location = new System.Drawing.Point(140, 290);
-            this.lblPwdRequired.Name = "lblPwdRequired";
-            this.lblPwdRequired.Size = new System.Drawing.Size(0, 19);
-            this.lblPwdRequired.TabIndex = 15;
             // 
             // frm_Login
             // 
