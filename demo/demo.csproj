@@ -151,6 +151,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="acc_dbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>acc_dbDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BL\Users\Auth.cs" />
     <Compile Include="BL\Validation\ErrorMsg\ErrorMsg.cs" />
     <Compile Include="DAL\connection.cs" />
@@ -172,6 +177,19 @@
     <Compile Include="PL\Dashboard\frm_Main.Designer.cs">
       <DependentUpon>frm_Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="PL\Journal\frmJournal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Journal\frmJournal.Designer.cs">
+      <DependentUpon>frmJournal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\Users\Cls_Users.cs" />
+    <Compile Include="PL\Users\frm_user.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Users\frm_user.Designer.cs">
+      <DependentUpon>frm_user.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="PL\Authentication\frm_Login.resx">
@@ -182,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PL\Dashboard\frm_Main.resx">
       <DependentUpon>frm_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Users\frm_user.resx">
+      <DependentUpon>frm_user.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -194,6 +215,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="acc_dbDataSet.xsc">
+      <DependentUpon>acc_dbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="acc_dbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>acc_dbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="acc_dbDataSet.xss">
+      <DependentUpon>acc_dbDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -216,7 +248,6 @@
     <Folder Include="BL\SysFormat\" />
     <Folder Include="PL\Account\" />
     <Folder Include="PL\Bond\" />
-    <Folder Include="PL\Journal\" />
     <Folder Include="PL\Purchase\" />
     <Folder Include="PL\Report\" />
     <Folder Include="PL\Sales\" />

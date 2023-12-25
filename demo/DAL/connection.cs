@@ -14,9 +14,20 @@ namespace demo.DAL
         //constructor to initalize connection string to DB
         public connection()
         {
-            string mode = "isWindows";
-            if(mode== "isWindows") connect = new SqlConnection(@"Server=DESKTOP-GSNAP69\SQLEXPRESS;database=acc_db;integrated_security=true;");
-            else connect = new SqlConnection(@"Server=DESKTOP-GSNAP69\SQLEXPRESS;database=acc_db;integrated_security=false;user id=;password=");
+            string connectionString = "Data Source=DESKTOP-74CJ5T1\\SQLEXPRESS;Initial Catalog=acc_db;Integrated Security=True";
+
+            // If you're using SQL Server Authentication, you might need to provide a username and password:
+            // string connectionString = "Data Source=YourServerName;Initial Catalog=YourDatabaseName;User Id=YourUsername;Password=YourPassword";
+
+            connect = new SqlConnection(connectionString);
+            //string mode = "isWindows";
+            //if (mode == "isWindows") connect = new SqlConnection(@"Server=DESKTOP-74CJ5T1\SQLEXPRESS;database=acc_db;integrated_security=true;");
+            //else connect = new SqlConnection(@"Server=DESKTOP-74CJ5T1\SQLEXPRESS;database=acc_db;integrated_security=false;user id=;password=");
+
+
+            //string mode = "isWindows";
+            //if(mode== "isWindows") connect = new SqlConnection(@"Server=DESKTOP-GSNAP69\SQLEXPRESS;database=acc_db;integrated_security=true;");
+            //else connect = new SqlConnection(@"Server=DESKTOP-GSNAP69\SQLEXPRESS;database=acc_db;integrated_security=false;user id=;password=");
 
         }
         //method to open connection

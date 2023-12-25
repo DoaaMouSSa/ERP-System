@@ -57,7 +57,8 @@ namespace demo.PL.Dashboard
 
         private void bunifuButton3_Click(object sender, EventArgs e)
         {
-
+            PL.Users.frm_user frm_User = new PL.Users.frm_user();   
+            frm_User.ShowDialog();
         }
 
         private void Exit_button_Click(object sender, EventArgs e)
@@ -68,6 +69,12 @@ namespace demo.PL.Dashboard
         private void minimize_button_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void bunifuButton1_Click(object sender, EventArgs e)
+        {
+            PL.Journal.frmJournal frmJournal = new PL.Journal.frmJournal(); 
+            frmJournal.ShowDialog();
         }
     }
 }
