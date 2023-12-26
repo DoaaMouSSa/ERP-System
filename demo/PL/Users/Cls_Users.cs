@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using demo.DAL;
+using System.Security.Cryptography;
 
 namespace demo.PL.Users
 {
@@ -42,7 +43,7 @@ namespace demo.PL.Users
                 new SqlParameter("@u_no", SqlDbType.Int) { Value = uID },
                 new SqlParameter("@u_fname", SqlDbType.NVarChar, 60) { Value = uFName },
                 new SqlParameter("@u_name", SqlDbType.NVarChar, 10) { Value = userName },
-                new SqlParameter("@u_password", SqlDbType.NVarChar, 20) { Value = uPassword },
+                new SqlParameter("@u_password", SqlDbType.NVarChar, 20) { Value = HashPassword(uPassword) },
                 new SqlParameter("@u_tel", SqlDbType.NVarChar, 20) { Value = uPhone },
                 new SqlParameter("@u_email", SqlDbType.NVarChar, 50) { Value = uEmail },
                 new SqlParameter("@u_img", SqlDbType.Image) { Value = uImage }
@@ -59,7 +60,7 @@ namespace demo.PL.Users
                 new SqlParameter("@u_no", SqlDbType.Int) { Value = uID },
                 new SqlParameter("@u_fname", SqlDbType.NVarChar, 60) { Value = uFName },
                 new SqlParameter("@u_name", SqlDbType.NVarChar, 10) { Value = userName },
-                new SqlParameter("@u_password", SqlDbType.NVarChar, 20) { Value = uPassword },
+                new SqlParameter("@u_password", SqlDbType.NVarChar, 20) { Value = HashPassword(uPassword) },
                 new SqlParameter("@u_tel", SqlDbType.NVarChar, 20) { Value = uPhone },
                 new SqlParameter("@u_email", SqlDbType.NVarChar, 50) { Value = uEmail },
                 new SqlParameter("@u_img", SqlDbType.Image) { Value = uImage }
@@ -80,6 +81,30 @@ namespace demo.PL.Users
             connection.ExecuteCmd("user_delete", parameters);
             connection.closeConnection();
         }
+
+        
+        public string HashPassword(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                string hexHash = BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
+                return hexHash.Substring(0, Math.Min(20, hexHash.Length));
+            }
+        }
+
+        public bool VerifyPassword(string enteredPassword, string storedHash)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] enteredHash = sha256.ComputeHash(Encoding.UTF8.GetBytes(enteredPassword));
+                string hexEnteredHash = BitConverter.ToString(enteredHash).Replace("-", "").ToLower();
+
+                return hexEnteredHash.Substring(0, Math.Min(20, hexEnteredHash.Length))
+                    .Equals(storedHash, StringComparison.OrdinalIgnoreCase);
+            }
+        }
+
     }
-    
+
 }

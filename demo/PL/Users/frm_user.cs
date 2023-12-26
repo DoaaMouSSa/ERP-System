@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -178,16 +179,25 @@ namespace demo.PL.Users
             }
         }
 
-        
+
         private void btn_delete_Click(object sender, EventArgs e)
         {
             try
             {
                 if (MessageBox.Show("هل تريد حزف المستخدم؟", "حذف مستخدم", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    Cls_Users.DeleteUser(int.Parse(txt_ID.Text));
+
+                    int u_no;
+                    if (int.TryParse(txt_ID.Text, out u_no))
+                    {
+                        Cls_Users.DeleteUser(u_no);
+                        MessageBox.Show("تم حذف المستخدم");
+                    }
+                    else
+                    {
+                        MessageBox.Show("");
+                    }
                     RefreshDataGridView();
-                    MessageBox.Show("تم حذف المستخدم");
                 }
             }
             catch (Exception ex)
@@ -195,6 +205,8 @@ namespace demo.PL.Users
                 MessageBox.Show($"Error: {ex.Message}");
             }
         }
+
+        
 
         
     }

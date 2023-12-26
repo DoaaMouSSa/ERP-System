@@ -1,4 +1,5 @@
-﻿using System;
+﻿using demo.PL.Message;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -75,6 +76,14 @@ namespace demo.PL.Dashboard
         {
             PL.Journal.frmJournal frmJournal = new PL.Journal.frmJournal(); 
             frmJournal.ShowDialog();
+        }
+
+        private void bunifuButton6_Click(object sender, EventArgs e)
+        {
+            if (MyMessageBox.ShowMessage("مرحبا?", "رساله", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                MyMessageBox.ShowMessage("نعم", "رساله", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

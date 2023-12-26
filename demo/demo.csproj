@@ -183,6 +183,19 @@
     <Compile Include="PL\Journal\frmJournal.Designer.cs">
       <DependentUpon>frmJournal.cs</DependentUpon>
     </Compile>
+    <Compile Include="PL\Message\frm_MessageYesNo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Message\frm_MessageYesNo.Designer.cs">
+      <DependentUpon>frm_MessageYesNo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\Message\frm_MessageOK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Message\frm_MessageOK.Designer.cs">
+      <DependentUpon>frm_MessageOK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\Message\MyMessageBox.cs" />
     <Compile Include="PL\Users\Cls_Users.cs" />
     <Compile Include="PL\Users\frm_user.cs">
       <SubType>Form</SubType>
@@ -200,6 +213,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PL\Dashboard\frm_Main.resx">
       <DependentUpon>frm_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Message\frm_MessageYesNo.resx">
+      <DependentUpon>frm_MessageYesNo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Message\frm_MessageOK.resx">
+      <DependentUpon>frm_MessageOK.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\Users\frm_user.resx">
       <DependentUpon>frm_user.cs</DependentUpon>
@@ -271,11 +290,13 @@
     <None Include="assets\icons\HR %281%29.png" />
     <Content Include="assets\icons\HR_b.png" />
     <Content Include="assets\icons\HR_s.png" />
+    <None Include="assets\icons\information.png" />
     <Content Include="assets\icons\MarktingAndSales_b.png" />
     <Content Include="assets\icons\MarktingAndSales_s.png" />
     <Content Include="assets\icons\notification_b.png" />
     <Content Include="assets\icons\notification_s.png" />
     <None Include="assets\icons\search.png" />
+    <None Include="assets\icons\question.png" />
     <Content Include="assets\icons\setting_b.png" />
     <Content Include="assets\icons\setting_s.png" />
     <None Include="assets\icons\solid_home.png" />
