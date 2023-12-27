@@ -8,5 +8,6 @@ namespace demo.BL.Validation.ErrorMsg
 {
     internal class ErrorMsg
     {
+        public string requiredUserName { get; set; }
     }
 }

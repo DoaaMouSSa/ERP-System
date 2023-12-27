@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using demo.BL.Users;
+using demo.PL.Dashboard;
 
 namespace demo.PL.Authentication
 {
@@ -27,7 +28,10 @@ namespace demo.PL.Authentication
         {
 
         }
-
+        private void checkEmptyText()
+        {
+           
+        }
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -35,30 +39,43 @@ namespace demo.PL.Authentication
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
-            Auth auth = new Auth(); 
-            auth.Login(txtUserName.Text, txtPassword.Text);
-            if(dt.Rows.Count > 0)
-            {
-                this.Hide();
-                frm_Login frmLogin = new frm_Login();
-                frmLogin.Show();
-            }
-            else
+            if (txtUserName.Text == "") lblUserNameRequired.Text = "من فضلك ادخل اسم المستخدم";
+            if (txtPassword.Text == "") lblPwdRequired.Text = "من فضلك ادخل كلمه المرور";
+            if (txtUserName.Text != "" && txtPassword.Text != "")
             {
 
-                MessageBox.Show("wrong data");
+                DataTable dt = new DataTable();
+                Auth auth = new Auth();
+
+
+                dt = auth.Login(txtUserName.Text, txtPassword.Text);
+                if (dt.Rows.Count > 0)
+                {
+                    this.Hide();
+                    frm_Main frmMain = new frm_Main();
+                    Program.user_name = txtUserName.Text;
+                    frmMain.Show();
+                }
+                else
+                {
+                    userNameWarnig.Text = "اسم المستخدم أو كلمه المرور غير صحيح";
+                }
             }
         }
-
+        private void clearWarningMsg()
+        {
+            lblUserNameRequired.Text = "";
+            lblPwdRequired.Text = "";
+            userNameWarnig.Text="";
+        }
         private void txtUserName_TextChanged(object sender, EventArgs e)
         {
-
+            clearWarningMsg();
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
-
+            clearWarningMsg();
         }
     }
 }

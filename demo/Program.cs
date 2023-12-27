@@ -9,6 +9,7 @@ namespace demo
 {
     internal static class Program
     {
+        public static string user_name;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

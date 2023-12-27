@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -156,13 +171,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>acc_dbDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BL\Account\HelperFunction.cs" />
+    <Compile Include="BL\company\Company.cs" />
     <Compile Include="BL\Users\Auth.cs" />
     <Compile Include="BL\Validation\ErrorMsg\ErrorMsg.cs" />
     <Compile Include="DAL\connection.cs" />
     <Compile Include="PL\Authentication\frm_Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PL\Authentication\frm_Login.Designer.cs">
+    <Compile Include="PL\Authentication\frm_Login.designer.cs">
       <DependentUpon>frm_Login.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\Authentication\test.cs">
@@ -170,6 +187,12 @@
     </Compile>
     <Compile Include="PL\Authentication\test.Designer.cs">
       <DependentUpon>test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\Company\frm_Company.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Company\frm_Company.designer.cs">
+      <DependentUpon>frm_Company.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\Dashboard\frm_Main.cs">
       <SubType>Form</SubType>
@@ -196,11 +219,11 @@
       <DependentUpon>frm_MessageOK.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\Message\MyMessageBox.cs" />
-    <Compile Include="PL\Users\Cls_Users.cs" />
-    <Compile Include="PL\Users\frm_user.cs">
+    <Compile Include="PL\User\Cls_User.cs" />
+    <Compile Include="PL\User\frm_user.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PL\Users\frm_user.Designer.cs">
+    <Compile Include="PL\User\frm_user.Designer.cs">
       <DependentUpon>frm_user.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -211,6 +234,9 @@
     <EmbeddedResource Include="PL\Authentication\test.resx">
       <DependentUpon>test.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PL\Company\frm_Company.resx">
+      <DependentUpon>frm_Company.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PL\Dashboard\frm_Main.resx">
       <DependentUpon>frm_Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -220,7 +246,7 @@
     <EmbeddedResource Include="PL\Message\frm_MessageOK.resx">
       <DependentUpon>frm_MessageOK.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PL\Users\frm_user.resx">
+    <EmbeddedResource Include="PL\User\frm_user.resx">
       <DependentUpon>frm_user.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -284,8 +310,10 @@
     <Content Include="assets\icons\chart_s.png" />
     <Content Include="assets\icons\Dashboard_b.png" />
     <Content Include="assets\icons\Dashboard_s.png" />
+    <Content Include="assets\icons\error.png" />
     <Content Include="assets\icons\home_b.png" />
     <Content Include="assets\icons\home_s.png" />
+    <Content Include="assets\image\company_img.jpg" />
     <None Include="assets\icons\HR.png" />
     <None Include="assets\icons\HR %281%29.png" />
     <Content Include="assets\icons\HR_b.png" />
@@ -306,6 +334,18 @@
     <None Include="assets\icons\store %281%29.png" />
     <Content Include="assets\icons\store_b.png" />
     <Content Include="assets\icons\store_s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

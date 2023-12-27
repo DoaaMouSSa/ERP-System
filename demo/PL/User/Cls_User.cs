@@ -10,11 +10,11 @@ using System.Security.Cryptography;
 
 namespace demo.PL.Users
 {
-    internal class Cls_Users
+    internal class Cls_User
     {
         private readonly DAL.connection connection;
 
-        public Cls_Users()
+        public Cls_User()
         {
             connection = new DAL.connection();
         }

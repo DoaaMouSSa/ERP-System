@@ -42,6 +42,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.lblPwdRequired = new System.Windows.Forms.Label();
+            this.lblUserNameRequired = new System.Windows.Forms.Label();
+            this.userNameWarnig = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -53,7 +56,7 @@
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(-4, 172);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(399, 420);
             this.pictureBox1.TabIndex = 0;
@@ -91,7 +94,7 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(405, 587);
             this.panel1.TabIndex = 3;
@@ -99,12 +102,12 @@
             // 
             // txtUserName
             // 
-            this.txtUserName.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtUserName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(254)))));
             this.txtUserName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUserName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
             this.txtUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.txtUserName.Location = new System.Drawing.Point(81, 220);
-            this.txtUserName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtUserName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtUserName.Multiline = true;
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(343, 32);
@@ -134,7 +137,7 @@
             this.btnLogin.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnLogin.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnLogin.Location = new System.Drawing.Point(81, 427);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(343, 43);
             this.btnLogin.TabIndex = 6;
@@ -146,7 +149,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(149)))), ((int)(((byte)(248)))));
             this.panel2.Location = new System.Drawing.Point(81, 254);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(343, 2);
             this.panel2.TabIndex = 7;
@@ -155,22 +158,21 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(149)))), ((int)(((byte)(248)))));
             this.panel3.Location = new System.Drawing.Point(81, 356);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(343, 2);
             this.panel3.TabIndex = 9;
             // 
             // txtPassword
             // 
-            this.txtPassword.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(254)))));
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
             this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.txtPassword.Location = new System.Drawing.Point(81, 321);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(343, 32);
             this.txtPassword.TabIndex = 8;
             this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -202,7 +204,12 @@
             // 
             // panel4
             // 
+            this.panel4.AutoSize = true;
+            this.panel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(254)))));
+            this.panel4.Controls.Add(this.lblPwdRequired);
+            this.panel4.Controls.Add(this.lblUserNameRequired);
+            this.panel4.Controls.Add(this.userNameWarnig);
             this.panel4.Controls.Add(this.btnExit);
             this.panel4.Controls.Add(this.btnLogin);
             this.panel4.Controls.Add(this.txtUserName);
@@ -213,12 +220,45 @@
             this.panel4.Controls.Add(this.panel3);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(149)))), ((int)(((byte)(248)))));
-            this.panel4.Location = new System.Drawing.Point(407, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4);
+            this.panel4.Location = new System.Drawing.Point(421, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(565, 587);
+            this.panel4.Size = new System.Drawing.Size(551, 587);
             this.panel4.TabIndex = 13;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            // 
+            // lblPwdRequired
+            // 
+            this.lblPwdRequired.AutoSize = true;
+            this.lblPwdRequired.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblPwdRequired.ForeColor = System.Drawing.Color.LightCoral;
+            this.lblPwdRequired.Location = new System.Drawing.Point(187, 357);
+            this.lblPwdRequired.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPwdRequired.Name = "lblPwdRequired";
+            this.lblPwdRequired.Size = new System.Drawing.Size(0, 23);
+            this.lblPwdRequired.TabIndex = 15;
+            // 
+            // lblUserNameRequired
+            // 
+            this.lblUserNameRequired.AutoSize = true;
+            this.lblUserNameRequired.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblUserNameRequired.ForeColor = System.Drawing.Color.LightCoral;
+            this.lblUserNameRequired.Location = new System.Drawing.Point(187, 260);
+            this.lblUserNameRequired.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUserNameRequired.Name = "lblUserNameRequired";
+            this.lblUserNameRequired.Size = new System.Drawing.Size(0, 23);
+            this.lblUserNameRequired.TabIndex = 14;
+            // 
+            // userNameWarnig
+            // 
+            this.userNameWarnig.AutoSize = true;
+            this.userNameWarnig.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold);
+            this.userNameWarnig.ForeColor = System.Drawing.Color.LightCoral;
+            this.userNameWarnig.Location = new System.Drawing.Point(187, 400);
+            this.userNameWarnig.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.userNameWarnig.Name = "userNameWarnig";
+            this.userNameWarnig.Size = new System.Drawing.Size(0, 23);
+            this.userNameWarnig.TabIndex = 13;
             // 
             // btnExit
             // 
@@ -229,7 +269,7 @@
             this.btnExit.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnExit.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnExit.Location = new System.Drawing.Point(81, 500);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(343, 43);
             this.btnExit.TabIndex = 12;
@@ -247,7 +287,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frm_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -277,5 +317,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Label userNameWarnig;
+        private System.Windows.Forms.Label lblPwdRequired;
+        private System.Windows.Forms.Label lblUserNameRequired;
     }
 }

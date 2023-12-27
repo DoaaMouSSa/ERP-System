@@ -26,6 +26,9 @@ namespace demo.PL.Message
                             case System.Windows.Forms.MessageBoxIcon.Question:
                                 messageOK.MessageIcon = demo.Properties.Resources.question;
                                 break;
+                            case System.Windows.Forms.MessageBoxIcon.Error:
+                                messageOK.MessageIcon = demo.Properties.Resources.error;
+                                break;
 
                         }
                         dialogResult = messageOK.ShowDialog();
@@ -43,6 +46,9 @@ namespace demo.PL.Message
                                 break;
                             case System.Windows.Forms.MessageBoxIcon.Question:
                                 messageYesNo.MessageIcon = demo.Properties.Resources.question;
+                                break;
+                            case System.Windows.Forms.MessageBoxIcon.Error:
+                                messageYesNo.MessageIcon = demo.Properties.Resources.error;
                                 break;
 
                         }
