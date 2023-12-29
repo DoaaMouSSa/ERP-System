@@ -19,7 +19,11 @@ namespace demo
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new PL.Authentication.frm_Login());
-            Application.Run(new PL.Dashboard.frm_Main());
+            //Application.Run(new PL.Dashboard.frm_Main());
+            Application.Run(new PL.Accounts.frm_accounts());
+            //Application.Run(new PL.Company.frm_Company());
+            //Application.Run(new PL.Users.frm_user());
+            //Application.Run(new PL.Message.frm_MessageYesNo());
 
         }
     }

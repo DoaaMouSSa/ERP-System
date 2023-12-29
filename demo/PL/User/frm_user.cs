@@ -17,6 +17,7 @@ namespace demo.PL.Users
 {
     public partial class frm_user : Form
     {
+        
         Users.Cls_User Cls_Users = new Users.Cls_User();
         public frm_user()
         {

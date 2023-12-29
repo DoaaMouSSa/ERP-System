@@ -171,11 +171,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>acc_dbDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BL\Account\cls_accounts.cs" />
     <Compile Include="BL\Account\HelperFunction.cs" />
     <Compile Include="BL\company\Company.cs" />
     <Compile Include="BL\Users\Auth.cs" />
     <Compile Include="BL\Validation\ErrorMsg\ErrorMsg.cs" />
     <Compile Include="DAL\connection.cs" />
+    <Compile Include="PL\Account\frm_accounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Account\frm_accounts.Designer.cs">
+      <DependentUpon>frm_accounts.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\Authentication\frm_Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,8 +225,8 @@
     <Compile Include="PL\Message\frm_MessageOK.Designer.cs">
       <DependentUpon>frm_MessageOK.cs</DependentUpon>
     </Compile>
-    <Compile Include="PL\Message\MyMessageBox.cs" />
-    <Compile Include="PL\User\Cls_User.cs" />
+    <Compile Include="BL\Message\MyMessageBox.cs" />
+    <Compile Include="BL\Users\Cls_User.cs" />
     <Compile Include="PL\User\frm_user.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,6 +235,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="PL\Account\frm_accounts.resx">
+      <DependentUpon>frm_accounts.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PL\Authentication\frm_Login.resx">
       <DependentUpon>frm_Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -291,7 +301,6 @@
     <Folder Include="BL\Journal\" />
     <Folder Include="BL\Report\" />
     <Folder Include="BL\SysFormat\" />
-    <Folder Include="PL\Account\" />
     <Folder Include="PL\Bond\" />
     <Folder Include="PL\Purchase\" />
     <Folder Include="PL\Report\" />
