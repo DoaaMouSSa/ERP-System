@@ -106,21 +106,21 @@ namespace demo.PL.Accounts
                 if (int.TryParse(txt_accNo.Text, out no))
                 {
                     DataTable dt = Accounts.get_Account(no);
-                    if (dt.Rows.Count > 0)
-                    {
-                        txt_acc_parent_no.Text = dt.Rows[0]["acc_parent_no"].ToString();
+                if (dt.Rows.Count > 0)
+                {
+                    txt_acc_parent_no.Text = dt.Rows[0]["acc_parent_no"].ToString();
                         txt_acc_name.Text = dt.Rows[0]["acc_name"].ToString();
-                        txt_acc_level.Text = dt.Rows[0]["acc_level"].ToString();
-                        txt_acc_debit.Text = dt.Rows[0]["acc_debit"].ToString();
-                        txt_acc_credit.Text = dt.Rows[0]["acc_credit"].ToString();
-                        txt_acc_balance.Text = dt.Rows[0]["acc_balance"].ToString();
-                        cb_AccType.SelectedValue = dt.Rows[0]["acc_type"].ToString();
-                        cb_report.SelectedValue = dt.Rows[0]["acc_report"].ToString();
-                    }
-                    else
-                    {
-                        ClearAccountControls();
-                    }
+                    txt_acc_level.Text = dt.Rows[0]["acc_level"].ToString();
+                    txt_acc_debit.Text = dt.Rows[0]["acc_debit"].ToString();
+                    txt_acc_credit.Text = dt.Rows[0]["acc_credit"].ToString();
+                    txt_acc_balance.Text = dt.Rows[0]["acc_balance"].ToString();
+                    cb_AccType.SelectedValue = dt.Rows[0]["acc_type"].ToString();
+                    cb_report.SelectedValue = dt.Rows[0]["acc_report"].ToString();
+                }
+                else
+                {
+                    ClearAccountControls();
+                }
                 }
                 else { ClearAccountControls(); }
             }
@@ -173,7 +173,7 @@ namespace demo.PL.Accounts
                         {
                             Accounts.Delete_Account(acc_no);
                             MessageBox.Show("تم حذف المستخدم");
-                        }
+        }
                         else
                         {
                             MyMessageBox.ShowMessage("يرجى تحديد ", "رساله", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -192,7 +192,7 @@ namespace demo.PL.Accounts
                 MessageBox.Show($"Error: {ex.Message}");
             }
 
-            
+
 
         }
 
@@ -225,8 +225,8 @@ namespace demo.PL.Accounts
                 {
                     MessageBox.Show("لا يمكن تعديد");
                 }
-                
-            }
+
+        }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error: {ex.Message}");
@@ -255,7 +255,7 @@ namespace demo.PL.Accounts
                     btn_delete.Enabled = true;
                     btn_Edit.Enabled = true;
 
-                }
+        }
                 else
                 {
                     MessageBox.Show("Invalid input. Please enter valid numeric values.");
