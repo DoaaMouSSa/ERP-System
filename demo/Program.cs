@@ -18,8 +18,9 @@ namespace demo
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new PL.Authentication.frm_Login());
-            Application.Run(new PL.Dashboard.frm_Main());
-
+            Form frmCash = new PL.Cash.frm_cash(1);
+            Application.Run(frmCash);
+            
         }
     }
 }
