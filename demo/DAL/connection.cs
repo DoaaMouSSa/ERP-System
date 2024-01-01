@@ -15,7 +15,7 @@ namespace demo.DAL
         public connection()
         {
             string mode = "isWindows";
-            if(mode== "isWindows") connect = new SqlConnection(@"Server=DESKTOP-GSNAP69\SQLEXPRESS;database=acc_db;integrated_security=true;");
+            if(mode== "isWindows") connect = new SqlConnection(@"Server=DESKTOP-GSNAP69\SQLEXPRESS;database=acc_dt;Integrated Security=true;");
             else connect = new SqlConnection(@"Server=DESKTOP-GSNAP69\SQLEXPRESS;database=acc_db;integrated_security=false;user id=;password=");
 
         }
