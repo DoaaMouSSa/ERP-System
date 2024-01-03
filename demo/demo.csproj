@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\Accounts\Account.cs" />
     <Compile Include="BL\Banks\Bank.cs" />
     <Compile Include="BL\Cashes\Cash.cs" />
     <Compile Include="BL\Users\Auth.cs" />

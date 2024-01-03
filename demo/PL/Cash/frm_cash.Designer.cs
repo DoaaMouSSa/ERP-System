@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gpMoney = new System.Windows.Forms.GroupBox();
             this.dgv = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.gpInput = new System.Windows.Forms.GroupBox();
@@ -48,6 +48,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.lblHeading = new System.Windows.Forms.Label();
+            this.test = new System.Windows.Forms.TextBox();
             this.gpMoney.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.gpInput.SuspendLayout();
@@ -70,31 +71,31 @@
             // 
             this.dgv.AllowUserToAddRows = false;
             this.dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(122)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(122)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv.DoubleBuffered = true;
             this.dgv.EnableHeadersVisualStyles = false;
@@ -115,6 +116,7 @@
             // 
             // gpInput
             // 
+            this.gpInput.Controls.Add(this.test);
             this.gpInput.Controls.Add(this.txtCtrl);
             this.gpInput.Controls.Add(this.txtAccEName);
             this.gpInput.Controls.Add(this.txtAccName);
@@ -150,6 +152,7 @@
             this.txtAccEName.Size = new System.Drawing.Size(403, 19);
             this.txtAccEName.TabIndex = 5;
             this.txtAccEName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtAccEName.EnabledChanged += new System.EventHandler(this.txtAccNo_EnabledChanged);
             // 
             // txtAccName
             // 
@@ -160,6 +163,7 @@
             this.txtAccName.Size = new System.Drawing.Size(403, 19);
             this.txtAccName.TabIndex = 4;
             this.txtAccName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtAccName.EnabledChanged += new System.EventHandler(this.txtAccNo_EnabledChanged);
             // 
             // txtAccNo
             // 
@@ -170,6 +174,10 @@
             this.txtAccNo.Size = new System.Drawing.Size(403, 19);
             this.txtAccNo.TabIndex = 3;
             this.txtAccNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtAccNo.EnabledChanged += new System.EventHandler(this.txtAccNo_EnabledChanged);
+            this.txtAccNo.TextChanged += new System.EventHandler(this.txtAccNo_TextChanged);
+            this.txtAccNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAccNo_KeyDown);
+            this.txtAccNo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtAccNo_KeyUp);
             // 
             // label3
             // 
@@ -277,6 +285,7 @@
             this.btnNew.TabIndex = 0;
             this.btnNew.Text = "جديد";
             this.btnNew.UseVisualStyleBackColor = false;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // lblHeading
             // 
@@ -289,6 +298,16 @@
             this.lblHeading.TabIndex = 3;
             this.lblHeading.Text = "البنوك او الصناديق";
             this.lblHeading.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // test
+            // 
+            this.test.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.test.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.test.Location = new System.Drawing.Point(253, 25);
+            this.test.Name = "test";
+            this.test.Size = new System.Drawing.Size(201, 19);
+            this.test.TabIndex = 7;
+            this.test.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // frm_cash
             // 
@@ -335,5 +354,6 @@
         public System.Windows.Forms.Label lblHeading;
         public System.Windows.Forms.GroupBox gpMoney;
         private Bunifu.Framework.UI.BunifuCustomDataGrid dgv;
+        public System.Windows.Forms.TextBox test;
     }
 }

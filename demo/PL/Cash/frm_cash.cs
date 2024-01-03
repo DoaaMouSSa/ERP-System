@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using demo.BL.Cashes;
 using demo.BL.Banks;
+using demo.BL.Accounts;
 namespace demo.PL.Cash
 {
     public partial class frm_cash : Form
@@ -16,6 +17,7 @@ namespace demo.PL.Cash
         private int Bank_Cash;
          demo.BL.Cashes.Cash cash = new demo.BL.Cashes.Cash();
         demo.BL.Banks.Bank bank = new demo.BL.Banks.Bank();
+        demo.BL.Accounts.Account account = new demo.BL.Accounts.Account();
 
         public frm_cash(int BankOrCash)
         {
@@ -38,9 +40,10 @@ namespace demo.PL.Cash
             dgv.Columns[1].HeaderText = "اسم الحساب";
             dgv.Columns[2].HeaderText = "اسم الحساب انجليزى";
         }
+
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
         private void frm_cash_Load(object sender, EventArgs e)
@@ -63,6 +66,37 @@ namespace demo.PL.Cash
             {
                 Application.Exit();
             }
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            txtAccNo.Text = String.Empty;
+            txtAccName.Text = String.Empty;
+            txtAccEName.Text = String.Empty;
+            txtAccNo.Enabled = true;
+            txtAccNo.Focus();
+        }
+
+        private void txtAccNo_KeyDown(object sender, KeyEventArgs e)
+        {
+            //txtAccName.Text = txtAccNo.Text;
+        }
+
+        private void txtAccNo_EnabledChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtAccNo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAccNo_KeyUp(object sender, KeyEventArgs e)
+        {
+            int acc_no = Convert.ToInt32(txtAccNo.Text);
+            string str= account.getAccName(acc_no);
+            MessageBox.Show(str);
         }
     }
 }

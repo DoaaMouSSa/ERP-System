@@ -62,6 +62,23 @@ namespace demo.DAL
             sda.Fill(dt);
             return dt;  
         }
-        //method to execute query
+        public string selectStringValue(string sp, SqlParameter[] data)
+        {
+    
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = sp;
+            cmd.Connection = connect;
+            if (data != null)
+            {
+                for (int i = 0; i < data.Length; i++)
+                {
+                    cmd.Parameters.Add(data[i]);
+                }
+            }
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            string str = sda.ToString();
+
+            return str;
+        }
     }
 }
