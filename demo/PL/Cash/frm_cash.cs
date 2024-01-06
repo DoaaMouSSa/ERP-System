@@ -94,9 +94,14 @@ namespace demo.PL.Cash
 
         private void txtAccNo_KeyUp(object sender, KeyEventArgs e)
         {
-            int acc_no = Convert.ToInt32(txtAccNo.Text);
-            string str= account.getAccName(acc_no);
-            MessageBox.Show(str);
+
+            if(txtAccNo.Text != "")
+            {
+                int acc_no = Convert.ToInt32(txtAccNo.Text);
+                string acc_name = account.getAccName(acc_no);
+                txtAccName.Text = acc_name;
+            }
+           
         }
     }
 }

@@ -13,12 +13,11 @@ namespace demo.BL.Accounts
     {
         public string getAccName(int acc_no)
         {
-
             connection connect = new connection();
             connect.openConnection();
-            SqlParameter[] param = new SqlParameter[1];
-            param[0] = new SqlParameter("@acc_no", SqlDbType.NVarChar, 50);
-            param[0].Value = acc_no;
+            SqlParameter param = new SqlParameter();
+            param = new SqlParameter("@acc_no", SqlDbType.Int);
+            param.Value = acc_no;
             string accName = connect.selectStringValue("getAccountName", param);
             connect.closeConnection();
             return accName;

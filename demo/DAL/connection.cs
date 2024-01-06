@@ -62,23 +62,31 @@ namespace demo.DAL
             sda.Fill(dt);
             return dt;  
         }
-        public string selectStringValue(string sp, SqlParameter[] data)
+        public string selectStringValue(string sp, SqlParameter data)
         {
     
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = sp;
             cmd.Connection = connect;
-            if (data != null)
-            {
-                for (int i = 0; i < data.Length; i++)
-                {
-                    cmd.Parameters.Add(data[i]);
-                }
-            }
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            string str = sda.ToString();
+            //cmd.Parameters.AddWithValue("@acc_no",1);
 
-            return str;
+             cmd.Parameters.Add(data);
+            //var returnParameter= cmd.Parameters.Add(data);
+            // @ReturnVal could be any name
+            //var returnParameter  = cmd.Parameters.Add("@str", SqlDbType.NVarChar,100);
+            //returnParameter.Direction = ParameterDirection.ReturnValue;
+            //cmd.CommandType = CommandType.StoredProcedure;
+            //SqlParameter retval = new SqlParameter("@str", SqlDbType.NVarChar, 100);
+            //cmd.Parameters.Add(retval);
+            //retval.Direction = ParameterDirection.ReturnValue;
+            cmd.Parameters.Add("@str", SqlDbType.NVarChar, 100).Direction = ParameterDirection.Output;
+
+            //SqlParameter result = cmd.Parameters.Add(new SqlParameter("@str", SqlDbType.NVarChar, 100));
+            //result.Direction = ParameterDirection.ReturnValue;
+            cmd.ExecuteNonQuery();
+            string result = cmd.Parameters["@str"].Value.ToString();
+
+            return result;
         }
     }
 }
