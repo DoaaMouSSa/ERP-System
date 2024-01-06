@@ -74,7 +74,7 @@ namespace demo.PL.Dashboard
 
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
-            PL.Journal.frmJournal frmJournal = new PL.Journal.frmJournal(); 
+            PL.Journal.frm_journal frmJournal = new PL.Journal.frm_journal(); 
             frmJournal.ShowDialog();
         }
 
