@@ -175,6 +175,12 @@
     <Compile Include="BL\Account\HelperFunction.cs" />
     <Compile Include="BL\company\Company.cs" />
     <Compile Include="BL\Currency\cls_Currency.cs" />
+    <Compile Include="PL\SysFormat\frm_currencies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\SysFormat\frm_currencies.Designer.cs">
+      <DependentUpon>frm_currencies.cs</DependentUpon>
+    </Compile>
     <Compile Include="BL\Users\Auth.cs" />
     <Compile Include="BL\Validation\ErrorMsg\ErrorMsg.cs" />
     <Compile Include="DAL\connection.cs" />
@@ -236,6 +242,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="PL\SysFormat\frm_currencies.resx">
+      <DependentUpon>frm_currencies.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PL\Account\frm_accounts.resx">
       <DependentUpon>frm_accounts.cs</DependentUpon>
     </EmbeddedResource>
@@ -310,7 +319,6 @@
     <Folder Include="PL\Report\" />
     <Folder Include="PL\Sales\" />
     <Folder Include="PL\Store\" />
-    <Folder Include="PL\SysFormat\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\icons\accounting_b.png" />

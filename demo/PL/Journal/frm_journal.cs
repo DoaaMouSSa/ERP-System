@@ -18,6 +18,7 @@ namespace demo.PL.Journal
             InitializeComponent();
             LoadDropdownLists();
             txt_exch.Text = "1.00";
+            
         }
 
 
@@ -59,19 +60,41 @@ namespace demo.PL.Journal
                     TD = Convert.ToDouble(txt_debit.Text) * exch;
                 }
 
-                dgv_Journal.Rows.Add(
-                    txt_journal_no.Text, txt_acc_no.Text, txt_acc_name.Text, txt_debit.Text, txt_crdit.Text, db_currency.SelectedValue, db_currency.Text, txt_exch.Text, txt_note.Text, TD, TC
-                );
+                string accountNumber = txt_acc_no.Text;
 
-                cleaning();
-                cal();
+                if (!IsAccountNumberExists(accountNumber))
+                {
+                    dgv_Journal.Rows.Add(
+                        txt_journal_no.Text, accountNumber, txt_acc_name.Text, txt_debit.Text, txt_crdit.Text, db_currency.SelectedValue, db_currency.Text, txt_exch.Text, txt_note.Text, TD, TC
+                    );
+
+                    cleaning();
+                    cal();
+                }
+                else
+                {
+                    MyMessageBox.ShowMessage("تم إدخال رقم الحساب مسبقًا.", "رسالة تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else
             {
                 MyMessageBox.ShowMessage("يوجد خطأ في تحويل العملات", "رسالة خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
+
+        private bool IsAccountNumberExists(string accountNumber)
+        {
+            foreach (DataGridViewRow row in dgv_Journal.Rows)
+            {
+                if (row.Cells["AccountNumberColumn"].Value != null && row.Cells["AccountNumberColumn"].Value.ToString() == accountNumber)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        
         private void cleaning()
         {
             txt_acc_no.Text = string.Empty;
@@ -97,9 +120,49 @@ namespace demo.PL.Journal
             txt_deff.Text = (TD - TC).ToString("0.00");
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
+        
 
+        private void db_currency_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BL.Currency.cls_Currency currency = new BL.Currency.cls_Currency();
+            DataTable dataTable = new DataTable();
+            dataTable = currency.get_currency_exchange(db_currency.Text);
+            if (dataTable.Rows.Count > 0 )
+            {
+                txt_exch.Text = dataTable.Rows[0][2].ToString(/*"0.00"*/);
+                txt_note.Focus();
+            }
         }
-    }
-}
+
+        private void حذفToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dgv_Journal.Rows.RemoveAt(dgv_Journal.CurrentRow.Index);
+            cal();
+        }
+
+        private void تعديلToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            edit_dvg();
+        }
+        private void edit_dvg()
+        {
+            //MessageBox.Show($"{e.ToString()}");
+            //int r=1;
+            //txt_journal_no.Text= dgv_Journal.CurrentRow.Cells["JournalNumberColumn"].Value;   
+            txt_acc_no.Text = dgv_Journal.CurrentRow.Cells["AccountNumberColumn"].Value.ToString();
+            txt_acc_name.Text = dgv_Journal.CurrentRow.Cells["AccountNameColumn"].Value.ToString();
+            txt_debit.Text = dgv_Journal.CurrentRow.Cells["DebitColumn"].Value.ToString();
+            txt_crdit.Text = dgv_Journal.CurrentRow.Cells["CrditColumn"].Value.ToString();
+            db_currency.SelectedValue = dgv_Journal.CurrentRow.Cells["CurrencyNumberColumn"].Value.ToString();
+            txt_exch.Text = dgv_Journal.CurrentRow.Cells["ExchangeColumn"].Value.ToString();
+            txt_note.Text = dgv_Journal.CurrentRow.Cells["NotesColumn"].Value.ToString();
+            cal();
+            cleaning();
+        }
+
+        private void dgv_Journal_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            edit_dvg();
+        }
+    }                                         
+}                                             
