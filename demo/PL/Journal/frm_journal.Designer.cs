@@ -101,7 +101,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.bunifuTextBox2 = new Bunifu.UI.WinForms.BunifuTextBox();
+            this.txt_JNotes = new Bunifu.UI.WinForms.BunifuTextBox();
             this.txt_journal_no = new Bunifu.UI.WinForms.BunifuTextBox();
             this.bunifuTextBox1 = new Bunifu.UI.WinForms.BunifuTextBox();
             this.bunifuShadowPanel2 = new Bunifu.UI.WinForms.BunifuShadowPanel();
@@ -211,7 +211,7 @@
             this.bunifuShadowPanel1.Controls.Add(this.label1);
             this.bunifuShadowPanel1.Controls.Add(this.radioButton2);
             this.bunifuShadowPanel1.Controls.Add(this.radioButton1);
-            this.bunifuShadowPanel1.Controls.Add(this.bunifuTextBox2);
+            this.bunifuShadowPanel1.Controls.Add(this.txt_JNotes);
             this.bunifuShadowPanel1.Controls.Add(this.txt_journal_no);
             this.bunifuShadowPanel1.Controls.Add(this.bunifuTextBox1);
             this.bunifuShadowPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -373,15 +373,15 @@
             this.radioButton2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.radioButton2.Size = new System.Drawing.Size(73, 33);
             this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
             this.radioButton2.Text = "معلق";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
             this.radioButton1.Font = new System.Drawing.Font("Cairo", 9F, System.Drawing.FontStyle.Bold);
-            this.radioButton1.Location = new System.Drawing.Point(139, 20);
+            this.radioButton1.Location = new System.Drawing.Point(155, 20);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.radioButton1.Size = new System.Drawing.Size(58, 33);
@@ -390,79 +390,79 @@
             this.radioButton1.Text = "عام";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // bunifuTextBox2
+            // txt_JNotes
             // 
-            this.bunifuTextBox2.AcceptsReturn = false;
-            this.bunifuTextBox2.AcceptsTab = false;
-            this.bunifuTextBox2.AnimationSpeed = 200;
-            this.bunifuTextBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.bunifuTextBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.bunifuTextBox2.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuTextBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuTextBox2.BackgroundImage")));
-            this.bunifuTextBox2.BorderColorActive = System.Drawing.Color.DodgerBlue;
-            this.bunifuTextBox2.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.bunifuTextBox2.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.bunifuTextBox2.BorderColorIdle = System.Drawing.Color.Silver;
-            this.bunifuTextBox2.BorderRadius = 15;
-            this.bunifuTextBox2.BorderThickness = 1;
-            this.bunifuTextBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.bunifuTextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuTextBox2.DefaultFont = new System.Drawing.Font("Cairo", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuTextBox2.DefaultText = "";
-            this.bunifuTextBox2.FillColor = System.Drawing.Color.White;
-            this.bunifuTextBox2.HideSelection = true;
-            this.bunifuTextBox2.IconLeft = null;
-            this.bunifuTextBox2.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuTextBox2.IconPadding = 10;
-            this.bunifuTextBox2.IconRight = null;
-            this.bunifuTextBox2.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuTextBox2.Lines = new string[0];
-            this.bunifuTextBox2.Location = new System.Drawing.Point(389, 62);
-            this.bunifuTextBox2.MaxLength = 32767;
-            this.bunifuTextBox2.MinimumSize = new System.Drawing.Size(1, 1);
-            this.bunifuTextBox2.Modified = false;
-            this.bunifuTextBox2.Multiline = false;
-            this.bunifuTextBox2.Name = "bunifuTextBox2";
+            this.txt_JNotes.AcceptsReturn = false;
+            this.txt_JNotes.AcceptsTab = false;
+            this.txt_JNotes.AnimationSpeed = 200;
+            this.txt_JNotes.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txt_JNotes.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txt_JNotes.BackColor = System.Drawing.Color.Transparent;
+            this.txt_JNotes.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txt_JNotes.BackgroundImage")));
+            this.txt_JNotes.BorderColorActive = System.Drawing.Color.DodgerBlue;
+            this.txt_JNotes.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.txt_JNotes.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.txt_JNotes.BorderColorIdle = System.Drawing.Color.Silver;
+            this.txt_JNotes.BorderRadius = 15;
+            this.txt_JNotes.BorderThickness = 1;
+            this.txt_JNotes.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txt_JNotes.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_JNotes.DefaultFont = new System.Drawing.Font("Cairo", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_JNotes.DefaultText = "";
+            this.txt_JNotes.FillColor = System.Drawing.Color.White;
+            this.txt_JNotes.HideSelection = true;
+            this.txt_JNotes.IconLeft = null;
+            this.txt_JNotes.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_JNotes.IconPadding = 10;
+            this.txt_JNotes.IconRight = null;
+            this.txt_JNotes.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_JNotes.Lines = new string[0];
+            this.txt_JNotes.Location = new System.Drawing.Point(389, 62);
+            this.txt_JNotes.MaxLength = 32767;
+            this.txt_JNotes.MinimumSize = new System.Drawing.Size(1, 1);
+            this.txt_JNotes.Modified = false;
+            this.txt_JNotes.Multiline = false;
+            this.txt_JNotes.Name = "txt_JNotes";
             stateProperties1.BorderColor = System.Drawing.Color.DodgerBlue;
             stateProperties1.FillColor = System.Drawing.Color.Empty;
             stateProperties1.ForeColor = System.Drawing.Color.Empty;
             stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.bunifuTextBox2.OnActiveState = stateProperties1;
+            this.txt_JNotes.OnActiveState = stateProperties1;
             stateProperties2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             stateProperties2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             stateProperties2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             stateProperties2.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.bunifuTextBox2.OnDisabledState = stateProperties2;
+            this.txt_JNotes.OnDisabledState = stateProperties2;
             stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
             stateProperties3.FillColor = System.Drawing.Color.Empty;
             stateProperties3.ForeColor = System.Drawing.Color.Empty;
             stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.bunifuTextBox2.OnHoverState = stateProperties3;
+            this.txt_JNotes.OnHoverState = stateProperties3;
             stateProperties4.BorderColor = System.Drawing.Color.Silver;
             stateProperties4.FillColor = System.Drawing.Color.White;
             stateProperties4.ForeColor = System.Drawing.Color.Empty;
             stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.bunifuTextBox2.OnIdleState = stateProperties4;
-            this.bunifuTextBox2.Padding = new System.Windows.Forms.Padding(3);
-            this.bunifuTextBox2.PasswordChar = '\0';
-            this.bunifuTextBox2.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.bunifuTextBox2.PlaceholderText = "";
-            this.bunifuTextBox2.ReadOnly = false;
-            this.bunifuTextBox2.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.bunifuTextBox2.SelectedText = "";
-            this.bunifuTextBox2.SelectionLength = 0;
-            this.bunifuTextBox2.SelectionStart = 0;
-            this.bunifuTextBox2.ShortcutsEnabled = true;
-            this.bunifuTextBox2.Size = new System.Drawing.Size(336, 43);
-            this.bunifuTextBox2.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
-            this.bunifuTextBox2.TabIndex = 0;
-            this.bunifuTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.bunifuTextBox2.TextMarginBottom = 0;
-            this.bunifuTextBox2.TextMarginLeft = 3;
-            this.bunifuTextBox2.TextMarginTop = 0;
-            this.bunifuTextBox2.TextPlaceholder = "";
-            this.bunifuTextBox2.UseSystemPasswordChar = false;
-            this.bunifuTextBox2.WordWrap = true;
+            this.txt_JNotes.OnIdleState = stateProperties4;
+            this.txt_JNotes.Padding = new System.Windows.Forms.Padding(3);
+            this.txt_JNotes.PasswordChar = '\0';
+            this.txt_JNotes.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txt_JNotes.PlaceholderText = "";
+            this.txt_JNotes.ReadOnly = false;
+            this.txt_JNotes.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txt_JNotes.SelectedText = "";
+            this.txt_JNotes.SelectionLength = 0;
+            this.txt_JNotes.SelectionStart = 0;
+            this.txt_JNotes.ShortcutsEnabled = true;
+            this.txt_JNotes.Size = new System.Drawing.Size(336, 43);
+            this.txt_JNotes.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
+            this.txt_JNotes.TabIndex = 1;
+            this.txt_JNotes.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_JNotes.TextMarginBottom = 0;
+            this.txt_JNotes.TextMarginLeft = 3;
+            this.txt_JNotes.TextMarginTop = 0;
+            this.txt_JNotes.TextPlaceholder = "";
+            this.txt_JNotes.UseSystemPasswordChar = false;
+            this.txt_JNotes.WordWrap = true;
             // 
             // txt_journal_no
             // 
@@ -483,6 +483,7 @@
             this.txt_journal_no.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_journal_no.DefaultFont = new System.Drawing.Font("Cairo", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_journal_no.DefaultText = "";
+            this.txt_journal_no.Enabled = false;
             this.txt_journal_no.FillColor = System.Drawing.Color.White;
             this.txt_journal_no.HideSelection = true;
             this.txt_journal_no.IconLeft = null;
@@ -521,7 +522,7 @@
             this.txt_journal_no.PasswordChar = '\0';
             this.txt_journal_no.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.txt_journal_no.PlaceholderText = "";
-            this.txt_journal_no.ReadOnly = false;
+            this.txt_journal_no.ReadOnly = true;
             this.txt_journal_no.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txt_journal_no.SelectedText = "";
             this.txt_journal_no.SelectionLength = 0;
@@ -875,7 +876,7 @@
             this.db_currency.Name = "db_currency";
             this.db_currency.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.db_currency.Size = new System.Drawing.Size(163, 32);
-            this.db_currency.TabIndex = 3;
+            this.db_currency.TabIndex = 4;
             this.db_currency.Text = null;
             this.db_currency.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Right;
             this.db_currency.TextLeftMargin = 5;
@@ -946,7 +947,7 @@
             this.txt_exch.ShortcutsEnabled = true;
             this.txt_exch.Size = new System.Drawing.Size(128, 43);
             this.txt_exch.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
-            this.txt_exch.TabIndex = 0;
+            this.txt_exch.TabIndex = 5;
             this.txt_exch.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_exch.TextMarginBottom = 0;
             this.txt_exch.TextMarginLeft = 3;
@@ -1020,7 +1021,7 @@
             this.txt_crdit.ShortcutsEnabled = true;
             this.txt_crdit.Size = new System.Drawing.Size(128, 43);
             this.txt_crdit.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
-            this.txt_crdit.TabIndex = 0;
+            this.txt_crdit.TabIndex = 7;
             this.txt_crdit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_crdit.TextMarginBottom = 0;
             this.txt_crdit.TextMarginLeft = 3;
@@ -1111,7 +1112,7 @@
             this.btn_add.OnPressedState.IconLeftImage = null;
             this.btn_add.OnPressedState.IconRightImage = null;
             this.btn_add.Size = new System.Drawing.Size(128, 39);
-            this.btn_add.TabIndex = 12;
+            this.btn_add.TabIndex = 9;
             this.btn_add.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_add.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_add.TextMarginLeft = 0;
@@ -1184,7 +1185,7 @@
             this.txt_debit.ShortcutsEnabled = true;
             this.txt_debit.Size = new System.Drawing.Size(128, 43);
             this.txt_debit.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
-            this.txt_debit.TabIndex = 0;
+            this.txt_debit.TabIndex = 6;
             this.txt_debit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_debit.TextMarginBottom = 0;
             this.txt_debit.TextMarginLeft = 3;
@@ -1258,7 +1259,7 @@
             this.txt_acc_name.ShortcutsEnabled = true;
             this.txt_acc_name.Size = new System.Drawing.Size(194, 43);
             this.txt_acc_name.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
-            this.txt_acc_name.TabIndex = 0;
+            this.txt_acc_name.TabIndex = 3;
             this.txt_acc_name.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_acc_name.TextMarginBottom = 0;
             this.txt_acc_name.TextMarginLeft = 3;
@@ -1343,7 +1344,7 @@
             this.txt_acc_no.ShortcutsEnabled = true;
             this.txt_acc_no.Size = new System.Drawing.Size(128, 43);
             this.txt_acc_no.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
-            this.txt_acc_no.TabIndex = 0;
+            this.txt_acc_no.TabIndex = 2;
             this.txt_acc_no.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_acc_no.TextMarginBottom = 0;
             this.txt_acc_no.TextMarginLeft = 3;
@@ -1483,7 +1484,7 @@
             this.txt_note.ShortcutsEnabled = true;
             this.txt_note.Size = new System.Drawing.Size(336, 39);
             this.txt_note.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
-            this.txt_note.TabIndex = 0;
+            this.txt_note.TabIndex = 8;
             this.txt_note.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_note.TextMarginBottom = 0;
             this.txt_note.TextMarginLeft = 3;
@@ -1892,6 +1893,7 @@
             this.btn_new.TextMarginLeft = 0;
             this.btn_new.TextPadding = new System.Windows.Forms.Padding(0);
             this.btn_new.UseDefaultRadiusAndThickness = true;
+            this.btn_new.Click += new System.EventHandler(this.btn_new_Click);
             // 
             // btn_Save
             // 
@@ -1976,7 +1978,7 @@
             this.btn_Save.OnPressedState.IconLeftImage = null;
             this.btn_Save.OnPressedState.IconRightImage = null;
             this.btn_Save.Size = new System.Drawing.Size(150, 39);
-            this.btn_Save.TabIndex = 14;
+            this.btn_Save.TabIndex = 10;
             this.btn_Save.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_Save.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_Save.TextMarginLeft = 0;
@@ -2211,7 +2213,7 @@
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label4;
-        private Bunifu.UI.WinForms.BunifuTextBox bunifuTextBox2;
+        private Bunifu.UI.WinForms.BunifuTextBox txt_JNotes;
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton4;
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton3;
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton2;

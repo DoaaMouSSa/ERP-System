@@ -175,6 +175,7 @@
     <Compile Include="BL\Account\HelperFunction.cs" />
     <Compile Include="BL\company\Company.cs" />
     <Compile Include="BL\Currency\cls_Currency.cs" />
+    <Compile Include="BL\Journal\cls_Journal.cs" />
     <Compile Include="PL\SysFormat\frm_currencies.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,7 +234,7 @@
       <DependentUpon>frm_MessageOK.cs</DependentUpon>
     </Compile>
     <Compile Include="BL\Validation\ErrorMsg\MyMessageBox.cs" />
-    <Compile Include="PL\User\Cls_User.cs" />
+    <Compile Include="BL\Users\Cls_User.cs" />
     <Compile Include="PL\User\frm_user.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -311,7 +312,6 @@
   <ItemGroup>
     <Folder Include="BL\Authentication\" />
     <Folder Include="BL\Bond\" />
-    <Folder Include="BL\Journal\" />
     <Folder Include="BL\Report\" />
     <Folder Include="BL\SysFormat\" />
     <Folder Include="PL\Bond\" />

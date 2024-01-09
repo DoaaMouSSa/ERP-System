@@ -1,4 +1,6 @@
-﻿using demo.PL.Message;
+﻿using demo.BL.Journal;
+using demo.PL.Message;
+using demo.PL.Users;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -101,7 +103,7 @@ namespace demo.PL.Journal
             txt_acc_name.Text = string.Empty;
             txt_debit.Text = string.Empty;
             txt_crdit.Text = string.Empty;
-            db_currency.SelectedIndex = 0;
+            db_currency.SelectedIndex = -1;
             txt_exch.Text = string.Empty;
             txt_note.Text = string.Empty;
         }
@@ -124,14 +126,26 @@ namespace demo.PL.Journal
 
         private void db_currency_SelectedIndexChanged(object sender, EventArgs e)
         {
-            BL.Currency.cls_Currency currency = new BL.Currency.cls_Currency();
-            DataTable dataTable = new DataTable();
-            dataTable = currency.get_currency_exchange(db_currency.Text);
-            if (dataTable.Rows.Count > 0 )
-            {
-                txt_exch.Text = dataTable.Rows[0][2].ToString(/*"0.00"*/);
-                txt_note.Focus();
-            }
+            //try
+            //{
+                if (db_currency.SelectedIndex != -1)
+                { 
+                    BL.Currency.cls_Currency currency = new BL.Currency.cls_Currency();
+                    DataTable dataTable = new DataTable();
+                    dataTable = currency.get_currency_exchange(db_currency.Text);
+                    if (dataTable.Rows.Count > 0)
+                    {
+                        txt_exch.Text = dataTable.Rows[0][2].ToString(/*"0.00"*/);
+                        txt_note.Focus();
+                    }
+                }
+                
+            //}
+            //catch 
+            //{
+            //    //MessageBox.Show("errrrrror");
+            //}
+            
         }
 
         private void حذفToolStripMenuItem_Click(object sender, EventArgs e)
@@ -164,5 +178,19 @@ namespace demo.PL.Journal
         {
             edit_dvg();
         }
+
+        private void btn_new_Click(object sender, EventArgs e)
+        {
+            BL.Journal.cls_Journal cls_Journal = new BL.Journal.cls_Journal();  
+            txt_journal_no.Text = cls_Journal.Generate_JNo().Rows[0][0].ToString();
+            txt_JNotes.Text = string.Empty;
+            txt_JNotes.Focus();
+            cal();
+            cleaning();
+            dgv_Journal.Rows.Clear();
+
+        }
+
+       
     }                                         
 }                                             
