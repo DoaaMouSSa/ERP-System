@@ -208,41 +208,40 @@ namespace demo.PL.Journal
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
-            //Add_Journal_hdr();
+            Add_Journal_hdr();
             Add_Journal_details();
             MyMessageBox.ShowMessage("تم الحفظ بنجاح", "عملية ناجحة", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void Add_Journal_details()
         {
-            if (dgv_Journal.Rows.Count > 0)
+            foreach (DataGridViewRow row in dgv_Journal.Rows)
             {
-                for (int i = 0; i < dgv_Journal.Rows.Count; i++)
+                if (!row.IsNewRow)
+                    journalManager = new cls_Journal();
+                int accno = Convert.ToInt32(row.Cells["AccountNumberColumn"].Value.ToString());
+                int j_no_hdr_id = Convert.ToInt32(row.Cells["JournalNumberColumn"].Value.ToString());
+
+                if (double.TryParse(row.Cells["DebitColumn"].Value.ToString(), out double acc_debit))
                 {
-                    int accno = Convert.ToInt32(dgv_Journal.Rows[i].Cells["AccountNumberColumn"].Value.ToString());
-                    int j_no_hdr_id = Convert.ToInt32(dgv_Journal.Rows[i].Cells["JournalNumberColumn"].Value.ToString());
-
-                    if (double.TryParse(dgv_Journal.Rows[i].Cells["DebitColumn"].Value.ToString(), out double acc_debit))
-                    {
-                    }
-                    else
-                    {
-                        acc_debit = 0.0;
-                    }
-
-                    if (double.TryParse(dgv_Journal.Rows[i].Cells["CrditColumn"].Value.ToString(), out double acc_credit))
-                    {
-                    }
-                    else
-                    {
-                        acc_credit = 0.0;
-                    }
-
-                    int acc_currency = Convert.ToInt32(dgv_Journal.Rows[i].Cells["CurrencyNumberColumn"].Value.ToString());
-                    string acc_not = Convert.ToString(dgv_Journal.Rows[i].Cells["NotesColumn"].Value.ToString());
-                    //MessageBox.Show($"accno : {accno}, acc_debit : {acc_debit}, acc_credit : {acc_credit}, acc_currency : {acc_currency}, acc_not : {acc_not}, j_no_hdr_id : {j_no_hdr_id}");
-                    journalManager.Journal_details_add(accno, acc_debit, acc_credit, acc_currency, acc_not, j_no_hdr_id);
                 }
+                else
+                {
+                    acc_debit = 0.0;
+                }
+
+                if (double.TryParse(row.Cells["CrditColumn"].Value.ToString(), out double acc_credit))
+                {
+                }
+                else
+                {
+                    acc_credit = 0.0;
+                }
+
+                int acc_currency = Convert.ToInt32(row.Cells["CurrencyNumberColumn"].Value.ToString());
+                string acc_not = Convert.ToString(row.Cells["NotesColumn"].Value.ToString());
+                journalManager.Journal_details_add(accno, acc_debit, acc_credit, acc_currency, acc_not, j_no_hdr_id);
+
             }
         }
     }
