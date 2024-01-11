@@ -1,4 +1,5 @@
-﻿using demo.BL.Journal;
+﻿using demo.BL.Currency;
+using demo.BL.Journal;
 using demo.PL.Message;
 using demo.PL.Users;
 using System;
@@ -15,51 +16,65 @@ namespace demo.PL.Journal
 {
     public partial class frm_journal : Form
     {
+        private cls_Journal journalManager;
+        private cls_Currency currencyManager;
+
         public frm_journal()
         {
             InitializeComponent();
+            InitializeManagers();
             LoadDropdownLists();
-            txt_exch.Text = "1.00";
-            
+            SetDefaultExchangeRate();
         }
 
-
-
+        private void InitializeManagers()
+        {
+            journalManager = new cls_Journal();
+            currencyManager = new cls_Currency();
+        }
 
         private void LoadDropdownLists()
         {
             try
             {
-                BL.Currency.cls_Currency currency = new BL.Currency.cls_Currency();
-                db_currency.DataSource = currency.get_all_currency();
+                db_currency.DataSource = currencyManager.get_all_currency();
                 db_currency.ValueMember = "curr_no";
                 db_currency.DisplayMember = "curr_aname";
-
-
             }
-            catch /*(Exception ex)*/
+            catch
             {
                 MyMessageBox.ShowMessage("يوجد خطأ في تحميل العملات", "رسالة خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        private void SetDefaultExchangeRate()
+        {
+            if (db_currency.SelectedIndex != -1)
+            {
+                DataTable dataTable = currencyManager.get_currency_exchange(db_currency.Text);
+                if (dataTable.Rows.Count > 0)
+                {
+                    txt_exch.Text = dataTable.Rows[0][2].ToString();
+                    txt_note.Focus();
+                }
+            }
+        }
+
         private void btn_add_Click(object sender, EventArgs e)
         {
-            double exch;
-
-            if (double.TryParse(txt_exch.Text, out exch))
+            if (double.TryParse(txt_exch.Text, out double exchangeRate))
             {
                 double TD = 0;
                 double TC = 0;
 
                 if (!string.IsNullOrEmpty(txt_crdit.Text))
                 {
-                    TC = Convert.ToDouble(txt_crdit.Text) * exch;
+                    TC = Convert.ToDouble(txt_crdit.Text) * exchangeRate;
                 }
 
                 if (!string.IsNullOrEmpty(txt_debit.Text))
                 {
-                    TD = Convert.ToDouble(txt_debit.Text) * exch;
+                    TD = Convert.ToDouble(txt_debit.Text) * exchangeRate;
                 }
 
                 string accountNumber = txt_acc_no.Text;
@@ -96,7 +111,6 @@ namespace demo.PL.Journal
             return false;
         }
 
-        
         private void cleaning()
         {
             txt_acc_no.Text = string.Empty;
@@ -112,40 +126,21 @@ namespace demo.PL.Journal
         {
             double TD = 0;
             double TC = 0;
+
             for (int i = 0; i < dgv_Journal.Rows.Count; i++)
             {
-                TD = TD + Convert.ToDouble(dgv_Journal.Rows[i].Cells["TotalDebitColumn"].Value);
-                TC = TC + Convert.ToDouble(dgv_Journal.Rows[i].Cells["TotalCrditColumn"].Value);
+                TD += Convert.ToDouble(dgv_Journal.Rows[i].Cells["TotalDebitColumn"].Value);
+                TC += Convert.ToDouble(dgv_Journal.Rows[i].Cells["TotalCrditColumn"].Value);
             }
+
             txt_Tcrdit.Text = TC.ToString("0.00");
             txt_Tdebit.Text = TD.ToString("0.00");
             txt_deff.Text = (TD - TC).ToString("0.00");
         }
 
-        
-
         private void db_currency_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //try
-            //{
-                if (db_currency.SelectedIndex != -1)
-                { 
-                    BL.Currency.cls_Currency currency = new BL.Currency.cls_Currency();
-                    DataTable dataTable = new DataTable();
-                    dataTable = currency.get_currency_exchange(db_currency.Text);
-                    if (dataTable.Rows.Count > 0)
-                    {
-                        txt_exch.Text = dataTable.Rows[0][2].ToString(/*"0.00"*/);
-                        txt_note.Focus();
-                    }
-                }
-                
-            //}
-            //catch 
-            //{
-            //    //MessageBox.Show("errrrrror");
-            //}
-            
+            SetDefaultExchangeRate();
         }
 
         private void حذفToolStripMenuItem_Click(object sender, EventArgs e)
@@ -158,11 +153,9 @@ namespace demo.PL.Journal
         {
             edit_dvg();
         }
+
         private void edit_dvg()
         {
-            //MessageBox.Show($"{e.ToString()}");
-            //int r=1;
-            //txt_journal_no.Text= dgv_Journal.CurrentRow.Cells["JournalNumberColumn"].Value;   
             txt_acc_no.Text = dgv_Journal.CurrentRow.Cells["AccountNumberColumn"].Value.ToString();
             txt_acc_name.Text = dgv_Journal.CurrentRow.Cells["AccountNameColumn"].Value.ToString();
             txt_debit.Text = dgv_Journal.CurrentRow.Cells["DebitColumn"].Value.ToString();
@@ -181,16 +174,76 @@ namespace demo.PL.Journal
 
         private void btn_new_Click(object sender, EventArgs e)
         {
-            BL.Journal.cls_Journal cls_Journal = new BL.Journal.cls_Journal();  
-            txt_journal_no.Text = cls_Journal.Generate_JNo().Rows[0][0].ToString();
+            btn_Save.Enabled = true;
+            txt_journal_no.Text = journalManager.Generate_JNo().Rows[0][0].ToString();
             txt_JNotes.Text = string.Empty;
             txt_JNotes.Focus();
             cal();
             cleaning();
             dgv_Journal.Rows.Clear();
+        }
+
+        private void Add_Journal_hdr()
+        {
+            DateTime Jdate = Convert.ToDateTime(db_Jdate.Value.ToLongDateString());
+            DateTime Adate = DateTime.Now;
+            int jType = rb_general.Checked ? 1 : (rb_stuck.Checked ? 4 : 0);
+            int jPost = cb_post.Checked ? 1 : 0;
+
+            journalManager.Journal_hdr_add(
+                Convert.ToInt32(txt_journal_no.Text),
+                Jdate,
+                txt_JNotes.Text,
+                jType,
+                jPost,
+                Convert.ToDouble(txt_Tdebit.Text),
+                Convert.ToDouble(txt_Tcrdit.Text),
+                Convert.ToDouble(txt_deff.Text),
+                1,//userID
+                Adate,
+                Convert.ToInt32(db_currency.SelectedValue)
+            );
 
         }
 
-       
-    }                                         
-}                                             
+        private void btn_Save_Click(object sender, EventArgs e)
+        {
+            //Add_Journal_hdr();
+            Add_Journal_details();
+            MyMessageBox.ShowMessage("تم الحفظ بنجاح", "عملية ناجحة", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void Add_Journal_details()
+        {
+            if (dgv_Journal.Rows.Count > 0)
+            {
+                for (int i = 0; i < dgv_Journal.Rows.Count; i++)
+                {
+                    int accno = Convert.ToInt32(dgv_Journal.Rows[i].Cells["AccountNumberColumn"].Value.ToString());
+                    int j_no_hdr_id = Convert.ToInt32(dgv_Journal.Rows[i].Cells["JournalNumberColumn"].Value.ToString());
+
+                    if (double.TryParse(dgv_Journal.Rows[i].Cells["DebitColumn"].Value.ToString(), out double acc_debit))
+                    {
+                    }
+                    else
+                    {
+                        acc_debit = 0.0;
+                    }
+
+                    if (double.TryParse(dgv_Journal.Rows[i].Cells["CrditColumn"].Value.ToString(), out double acc_credit))
+                    {
+                    }
+                    else
+                    {
+                        acc_credit = 0.0;
+                    }
+
+                    int acc_currency = Convert.ToInt32(dgv_Journal.Rows[i].Cells["CurrencyNumberColumn"].Value.ToString());
+                    string acc_not = Convert.ToString(dgv_Journal.Rows[i].Cells["NotesColumn"].Value.ToString());
+                    //MessageBox.Show($"accno : {accno}, acc_debit : {acc_debit}, acc_credit : {acc_credit}, acc_currency : {acc_currency}, acc_not : {acc_not}, j_no_hdr_id : {j_no_hdr_id}");
+                    journalManager.Journal_details_add(accno, acc_debit, acc_credit, acc_currency, acc_not, j_no_hdr_id);
+                }
+            }
+        }
+    }
+}
