@@ -133,9 +133,9 @@ namespace demo.PL.Journal
                 TC += Convert.ToDouble(dgv_Journal.Rows[i].Cells["TotalCrditColumn"].Value);
             }
 
-            txt_Tcrdit.Text = TC.ToString("0.00");
-            txt_Tdebit.Text = TD.ToString("0.00");
-            txt_deff.Text = (TD - TC).ToString("0.00");
+            txt_Tcrdit.Text = TC.ToString(/*"0.00"*/);
+            txt_Tdebit.Text = TD.ToString(/*"0.00"*/);
+            txt_deff.Text = (TD - TC).ToString(/*"0.00"*/);
         }
 
         private void db_currency_SelectedIndexChanged(object sender, EventArgs e)
@@ -172,8 +172,10 @@ namespace demo.PL.Journal
             edit_dvg();
         }
 
+
         private void btn_new_Click(object sender, EventArgs e)
         {
+            journalManager = new cls_Journal();
             btn_Save.Enabled = true;
             txt_journal_no.Text = journalManager.Generate_JNo().Rows[0][0].ToString();
             txt_JNotes.Text = string.Empty;
@@ -181,6 +183,7 @@ namespace demo.PL.Journal
             cal();
             cleaning();
             dgv_Journal.Rows.Clear();
+
         }
 
         private void Add_Journal_hdr()
@@ -244,5 +247,135 @@ namespace demo.PL.Journal
 
             }
         }
+
+        private void btn_search_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(txt_search.Text, out int j))
+            {
+                try
+                {
+                    SJ_Header(j);
+                    SJ_Details(j);
+                }
+                catch
+                {
+
+                    MyMessageBox.ShowMessage("يرجى المحاوله مره اخرى", "عملية خاطئة", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+            }
+            else
+            {
+                MyMessageBox.ShowMessage("يرجى التحقق من رقم القيد.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void SJ_Header(int j_no)
+        {
+            try
+            {
+                journalManager = new cls_Journal();
+                DataTable dataTable = journalManager.select_Journal_hdr(j_no);
+
+                if (dataTable.Rows.Count > 0)
+                {
+                    DataRow firstRow = dataTable.Rows[0];
+
+                    txt_journal_no.Text = firstRow["j_no"].ToString();
+                    txt_Tdebit.Text = firstRow["t_debit"].ToString();
+                    txt_Tcrdit.Text = firstRow["t_credit"].ToString();
+                    txt_deff.Text = firstRow["t_balance"].ToString();
+                    txt_JNotes.Text = firstRow["j_note"].ToString();
+                    db_currency.SelectedValue = Convert.ToInt32(firstRow["curr_no"]);
+                    db_Jdate.Value = Convert.ToDateTime(firstRow["j_date"]);
+
+                    int jType = Convert.ToInt32(firstRow["j_type"]);
+                    rb_stuck.Checked = (jType == 4);
+                    rb_general.Checked = (jType == 1);
+
+                    cb_post.Checked = Convert.ToInt32(firstRow["j_post"]) == 1;
+
+                }
+                else
+                {
+                    MyMessageBox.ShowMessage("يرجى التحقق من رقم القيد", "لا يوجد", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+            }
+            catch
+            {
+                MyMessageBox.ShowMessage("يوجد خطأ اثناء تحميل البيانات", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void SJ_Details(int j_no)
+        {
+            dgv_Journal.Rows.Clear();
+            journalManager = new cls_Journal();
+            DataTable dataTable = journalManager.select_Journal_details(j_no);
+
+            if (dataTable.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dataTable.Rows)
+                {
+                    dgv_Journal.Rows.Add(
+                        dr["j_no_hdr_id"],
+                        dr["acc_no"],
+                        "name of account", 
+                        dr["acc_debit"],
+                        dr["acc_credit"],
+                        dr["acc_currency"],
+                        dr["curr_aname"],
+                        "ExchangeColumn", 
+                        dr["acc_not"],
+                        "TotalDebitColumn", 
+                        "TotalCrditColumn" 
+                    );
+                }
+            }
+
+        }
+
+        private void txt_search_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_acc_no_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_debit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8 && e.KeyChar != 46)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_crdit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8 && e.KeyChar != 46)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_exch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8 && e.KeyChar != 46)
+            {
+                e.Handled = true;
+            }
+        }
     }
+
 }
+

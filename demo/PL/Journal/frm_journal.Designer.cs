@@ -89,12 +89,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.bunifuShadowPanel1 = new Bunifu.UI.WinForms.BunifuShadowPanel();
-            this.bunifuImageButton4 = new Bunifu.Framework.UI.BunifuImageButton();
-            this.bunifuImageButton3 = new Bunifu.Framework.UI.BunifuImageButton();
-            this.bunifuImageButton2 = new Bunifu.Framework.UI.BunifuImageButton();
-            this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
+            this.btn_search = new Bunifu.Framework.UI.BunifuImageButton();
             this.cb_post = new System.Windows.Forms.CheckBox();
             this.db_Jdate = new Bunifu.UI.WinForms.BunifuDatePicker();
+            this.label15 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -103,7 +101,7 @@
             this.rb_general = new System.Windows.Forms.RadioButton();
             this.txt_JNotes = new Bunifu.UI.WinForms.BunifuTextBox();
             this.txt_journal_no = new Bunifu.UI.WinForms.BunifuTextBox();
-            this.bunifuTextBox1 = new Bunifu.UI.WinForms.BunifuTextBox();
+            this.txt_search = new Bunifu.UI.WinForms.BunifuTextBox();
             this.bunifuShadowPanel2 = new Bunifu.UI.WinForms.BunifuShadowPanel();
             this.dgv_Journal = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.JournalNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -151,10 +149,7 @@
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.bunifuShadowPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_search)).BeginInit();
             this.bunifuShadowPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Journal)).BeginInit();
             this.cMenuStrip.SuspendLayout();
@@ -199,12 +194,10 @@
             this.bunifuShadowPanel1.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.bunifuShadowPanel1.BorderRadius = 1;
             this.bunifuShadowPanel1.BorderThickness = 1;
-            this.bunifuShadowPanel1.Controls.Add(this.bunifuImageButton4);
-            this.bunifuShadowPanel1.Controls.Add(this.bunifuImageButton3);
-            this.bunifuShadowPanel1.Controls.Add(this.bunifuImageButton2);
-            this.bunifuShadowPanel1.Controls.Add(this.bunifuImageButton1);
+            this.bunifuShadowPanel1.Controls.Add(this.btn_search);
             this.bunifuShadowPanel1.Controls.Add(this.cb_post);
             this.bunifuShadowPanel1.Controls.Add(this.db_Jdate);
+            this.bunifuShadowPanel1.Controls.Add(this.label15);
             this.bunifuShadowPanel1.Controls.Add(this.label3);
             this.bunifuShadowPanel1.Controls.Add(this.label2);
             this.bunifuShadowPanel1.Controls.Add(this.label4);
@@ -213,7 +206,7 @@
             this.bunifuShadowPanel1.Controls.Add(this.rb_general);
             this.bunifuShadowPanel1.Controls.Add(this.txt_JNotes);
             this.bunifuShadowPanel1.Controls.Add(this.txt_journal_no);
-            this.bunifuShadowPanel1.Controls.Add(this.bunifuTextBox1);
+            this.bunifuShadowPanel1.Controls.Add(this.txt_search);
             this.bunifuShadowPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bunifuShadowPanel1.FillStyle = Bunifu.UI.WinForms.BunifuShadowPanel.FillStyles.Solid;
             this.bunifuShadowPanel1.GradientMode = Bunifu.UI.WinForms.BunifuShadowPanel.GradientModes.Vertical;
@@ -230,63 +223,26 @@
             this.bunifuShadowPanel1.Style = Bunifu.UI.WinForms.BunifuShadowPanel.BevelStyles.Flat;
             this.bunifuShadowPanel1.TabIndex = 17;
             // 
-            // bunifuImageButton4
+            // btn_search
             // 
-            this.bunifuImageButton4.BackColor = System.Drawing.Color.DodgerBlue;
-            this.bunifuImageButton4.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton4.Image")));
-            this.bunifuImageButton4.ImageActive = null;
-            this.bunifuImageButton4.Location = new System.Drawing.Point(54, 62);
-            this.bunifuImageButton4.Name = "bunifuImageButton4";
-            this.bunifuImageButton4.Size = new System.Drawing.Size(31, 49);
-            this.bunifuImageButton4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bunifuImageButton4.TabIndex = 5;
-            this.bunifuImageButton4.TabStop = false;
-            this.bunifuImageButton4.Zoom = 10;
-            // 
-            // bunifuImageButton3
-            // 
-            this.bunifuImageButton3.BackColor = System.Drawing.Color.DodgerBlue;
-            this.bunifuImageButton3.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton3.Image")));
-            this.bunifuImageButton3.ImageActive = null;
-            this.bunifuImageButton3.Location = new System.Drawing.Point(17, 62);
-            this.bunifuImageButton3.Name = "bunifuImageButton3";
-            this.bunifuImageButton3.Size = new System.Drawing.Size(31, 49);
-            this.bunifuImageButton3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bunifuImageButton3.TabIndex = 5;
-            this.bunifuImageButton3.TabStop = false;
-            this.bunifuImageButton3.Zoom = 10;
-            // 
-            // bunifuImageButton2
-            // 
-            this.bunifuImageButton2.BackColor = System.Drawing.Color.DodgerBlue;
-            this.bunifuImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton2.Image")));
-            this.bunifuImageButton2.ImageActive = null;
-            this.bunifuImageButton2.Location = new System.Drawing.Point(187, 62);
-            this.bunifuImageButton2.Name = "bunifuImageButton2";
-            this.bunifuImageButton2.Size = new System.Drawing.Size(31, 49);
-            this.bunifuImageButton2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bunifuImageButton2.TabIndex = 5;
-            this.bunifuImageButton2.TabStop = false;
-            this.bunifuImageButton2.Zoom = 10;
-            // 
-            // bunifuImageButton1
-            // 
-            this.bunifuImageButton1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.bunifuImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.Image")));
-            this.bunifuImageButton1.ImageActive = null;
-            this.bunifuImageButton1.Location = new System.Drawing.Point(223, 62);
-            this.bunifuImageButton1.Name = "bunifuImageButton1";
-            this.bunifuImageButton1.Size = new System.Drawing.Size(31, 49);
-            this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bunifuImageButton1.TabIndex = 5;
-            this.bunifuImageButton1.TabStop = false;
-            this.bunifuImageButton1.Zoom = 10;
+            this.btn_search.BackColor = System.Drawing.Color.Transparent;
+            this.btn_search.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_search.Image = ((System.Drawing.Image)(resources.GetObject("btn_search.Image")));
+            this.btn_search.ImageActive = null;
+            this.btn_search.Location = new System.Drawing.Point(20, 72);
+            this.btn_search.Name = "btn_search";
+            this.btn_search.Size = new System.Drawing.Size(37, 31);
+            this.btn_search.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_search.TabIndex = 5;
+            this.btn_search.TabStop = false;
+            this.btn_search.Zoom = 10;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // cb_post
             // 
             this.cb_post.AutoSize = true;
             this.cb_post.Font = new System.Drawing.Font("Cairo", 9F, System.Drawing.FontStyle.Bold);
-            this.cb_post.Location = new System.Drawing.Point(284, 66);
+            this.cb_post.Location = new System.Drawing.Point(309, 72);
             this.cb_post.Name = "cb_post";
             this.cb_post.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cb_post.Size = new System.Drawing.Size(70, 33);
@@ -319,6 +275,17 @@
             this.db_Jdate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.db_Jdate.Size = new System.Drawing.Size(157, 36);
             this.db_Jdate.TabIndex = 3;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Cairo", 9F, System.Drawing.FontStyle.Bold);
+            this.label15.Location = new System.Drawing.Point(230, 71);
+            this.label15.Name = "label15";
+            this.label15.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label15.Size = new System.Drawing.Size(40, 29);
+            this.label15.TabIndex = 2;
+            this.label15.Text = "بحث";
             // 
             // label3
             // 
@@ -539,79 +506,80 @@
             this.txt_journal_no.UseSystemPasswordChar = false;
             this.txt_journal_no.WordWrap = true;
             // 
-            // bunifuTextBox1
+            // txt_search
             // 
-            this.bunifuTextBox1.AcceptsReturn = false;
-            this.bunifuTextBox1.AcceptsTab = false;
-            this.bunifuTextBox1.AnimationSpeed = 200;
-            this.bunifuTextBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.bunifuTextBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.bunifuTextBox1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuTextBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuTextBox1.BackgroundImage")));
-            this.bunifuTextBox1.BorderColorActive = System.Drawing.Color.DodgerBlue;
-            this.bunifuTextBox1.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.bunifuTextBox1.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.bunifuTextBox1.BorderColorIdle = System.Drawing.Color.Silver;
-            this.bunifuTextBox1.BorderRadius = 15;
-            this.bunifuTextBox1.BorderThickness = 1;
-            this.bunifuTextBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.bunifuTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuTextBox1.DefaultFont = new System.Drawing.Font("Cairo", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuTextBox1.DefaultText = "";
-            this.bunifuTextBox1.FillColor = System.Drawing.Color.White;
-            this.bunifuTextBox1.HideSelection = true;
-            this.bunifuTextBox1.IconLeft = null;
-            this.bunifuTextBox1.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuTextBox1.IconPadding = 10;
-            this.bunifuTextBox1.IconRight = null;
-            this.bunifuTextBox1.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuTextBox1.Lines = new string[0];
-            this.bunifuTextBox1.Location = new System.Drawing.Point(91, 68);
-            this.bunifuTextBox1.MaxLength = 32767;
-            this.bunifuTextBox1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.bunifuTextBox1.Modified = false;
-            this.bunifuTextBox1.Multiline = false;
-            this.bunifuTextBox1.Name = "bunifuTextBox1";
+            this.txt_search.AcceptsReturn = false;
+            this.txt_search.AcceptsTab = false;
+            this.txt_search.AnimationSpeed = 200;
+            this.txt_search.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txt_search.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txt_search.BackColor = System.Drawing.Color.Transparent;
+            this.txt_search.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txt_search.BackgroundImage")));
+            this.txt_search.BorderColorActive = System.Drawing.Color.DodgerBlue;
+            this.txt_search.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.txt_search.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.txt_search.BorderColorIdle = System.Drawing.Color.Silver;
+            this.txt_search.BorderRadius = 15;
+            this.txt_search.BorderThickness = 1;
+            this.txt_search.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txt_search.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_search.DefaultFont = new System.Drawing.Font("Cairo", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_search.DefaultText = "";
+            this.txt_search.FillColor = System.Drawing.Color.White;
+            this.txt_search.HideSelection = true;
+            this.txt_search.IconLeft = null;
+            this.txt_search.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_search.IconPadding = 10;
+            this.txt_search.IconRight = null;
+            this.txt_search.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_search.Lines = new string[0];
+            this.txt_search.Location = new System.Drawing.Point(60, 69);
+            this.txt_search.MaxLength = 32767;
+            this.txt_search.MinimumSize = new System.Drawing.Size(1, 1);
+            this.txt_search.Modified = false;
+            this.txt_search.Multiline = false;
+            this.txt_search.Name = "txt_search";
             stateProperties9.BorderColor = System.Drawing.Color.DodgerBlue;
             stateProperties9.FillColor = System.Drawing.Color.Empty;
             stateProperties9.ForeColor = System.Drawing.Color.Empty;
             stateProperties9.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.bunifuTextBox1.OnActiveState = stateProperties9;
+            this.txt_search.OnActiveState = stateProperties9;
             stateProperties10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             stateProperties10.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             stateProperties10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             stateProperties10.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.bunifuTextBox1.OnDisabledState = stateProperties10;
+            this.txt_search.OnDisabledState = stateProperties10;
             stateProperties11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
             stateProperties11.FillColor = System.Drawing.Color.Empty;
             stateProperties11.ForeColor = System.Drawing.Color.Empty;
             stateProperties11.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.bunifuTextBox1.OnHoverState = stateProperties11;
+            this.txt_search.OnHoverState = stateProperties11;
             stateProperties12.BorderColor = System.Drawing.Color.Silver;
             stateProperties12.FillColor = System.Drawing.Color.White;
             stateProperties12.ForeColor = System.Drawing.Color.Empty;
             stateProperties12.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.bunifuTextBox1.OnIdleState = stateProperties12;
-            this.bunifuTextBox1.Padding = new System.Windows.Forms.Padding(3);
-            this.bunifuTextBox1.PasswordChar = '\0';
-            this.bunifuTextBox1.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.bunifuTextBox1.PlaceholderText = "";
-            this.bunifuTextBox1.ReadOnly = false;
-            this.bunifuTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.bunifuTextBox1.SelectedText = "";
-            this.bunifuTextBox1.SelectionLength = 0;
-            this.bunifuTextBox1.SelectionStart = 0;
-            this.bunifuTextBox1.ShortcutsEnabled = true;
-            this.bunifuTextBox1.Size = new System.Drawing.Size(90, 36);
-            this.bunifuTextBox1.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
-            this.bunifuTextBox1.TabIndex = 0;
-            this.bunifuTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.bunifuTextBox1.TextMarginBottom = 0;
-            this.bunifuTextBox1.TextMarginLeft = 3;
-            this.bunifuTextBox1.TextMarginTop = 0;
-            this.bunifuTextBox1.TextPlaceholder = "";
-            this.bunifuTextBox1.UseSystemPasswordChar = false;
-            this.bunifuTextBox1.WordWrap = true;
+            this.txt_search.OnIdleState = stateProperties12;
+            this.txt_search.Padding = new System.Windows.Forms.Padding(3);
+            this.txt_search.PasswordChar = '\0';
+            this.txt_search.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txt_search.PlaceholderText = "";
+            this.txt_search.ReadOnly = false;
+            this.txt_search.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txt_search.SelectedText = "";
+            this.txt_search.SelectionLength = 0;
+            this.txt_search.SelectionStart = 0;
+            this.txt_search.ShortcutsEnabled = true;
+            this.txt_search.Size = new System.Drawing.Size(164, 36);
+            this.txt_search.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
+            this.txt_search.TabIndex = 0;
+            this.txt_search.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_search.TextMarginBottom = 0;
+            this.txt_search.TextMarginLeft = 3;
+            this.txt_search.TextMarginTop = 0;
+            this.txt_search.TextPlaceholder = "";
+            this.txt_search.UseSystemPasswordChar = false;
+            this.txt_search.WordWrap = true;
+            this.txt_search.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_search_KeyPress);
             // 
             // bunifuShadowPanel2
             // 
@@ -955,6 +923,7 @@
             this.txt_exch.TextPlaceholder = "";
             this.txt_exch.UseSystemPasswordChar = false;
             this.txt_exch.WordWrap = true;
+            this.txt_exch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_exch_KeyPress);
             // 
             // txt_crdit
             // 
@@ -1029,6 +998,7 @@
             this.txt_crdit.TextPlaceholder = "";
             this.txt_crdit.UseSystemPasswordChar = false;
             this.txt_crdit.WordWrap = true;
+            this.txt_crdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_crdit_KeyPress);
             // 
             // btn_add
             // 
@@ -1193,6 +1163,7 @@
             this.txt_debit.TextPlaceholder = "";
             this.txt_debit.UseSystemPasswordChar = false;
             this.txt_debit.WordWrap = true;
+            this.txt_debit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_debit_KeyPress);
             // 
             // txt_acc_name
             // 
@@ -1352,6 +1323,7 @@
             this.txt_acc_no.TextPlaceholder = "";
             this.txt_acc_no.UseSystemPasswordChar = false;
             this.txt_acc_no.WordWrap = true;
+            this.txt_acc_no.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_acc_no_KeyPress);
             // 
             // label9
             // 
@@ -2177,10 +2149,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.bunifuShadowPanel1.ResumeLayout(false);
             this.bunifuShadowPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_search)).EndInit();
             this.bunifuShadowPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Journal)).EndInit();
             this.cMenuStrip.ResumeLayout(false);
@@ -2206,18 +2175,14 @@
         private Bunifu.UI.WinForms.BunifuShadowPanel bunifuShadowPanel4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton rb_general;
-        private Bunifu.UI.WinForms.BunifuTextBox bunifuTextBox1;
+        private Bunifu.UI.WinForms.BunifuTextBox txt_search;
         private Bunifu.UI.WinForms.BunifuDatePicker db_Jdate;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RadioButton rb_stuck;
-        private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
         private System.Windows.Forms.CheckBox cb_post;
         private System.Windows.Forms.Label label4;
         private Bunifu.UI.WinForms.BunifuTextBox txt_JNotes;
-        private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton4;
-        private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton3;
-        private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton2;
         private Bunifu.UI.WinForms.BunifuDropdown db_currency;
         private Bunifu.UI.WinForms.BunifuTextBox txt_crdit;
         private Bunifu.UI.WinForms.BunifuTextBox txt_debit;
@@ -2257,5 +2222,7 @@
         private System.Windows.Forms.ContextMenuStrip cMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem حذفToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem تعديلToolStripMenuItem;
+        private System.Windows.Forms.Label label15;
+        private Bunifu.Framework.UI.BunifuImageButton btn_search;
     }
 }

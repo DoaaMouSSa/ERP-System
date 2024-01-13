@@ -63,5 +63,30 @@ namespace demo.BL.Journal
             connection.closeConnection();
         }
 
+        public DataTable select_Journal_details(int acc_no)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@j_no", SqlDbType.Int) { Value = acc_no }                
+            };
+            connection.openConnection();
+            DataTable dataTable = connection.selectData("select_specific_journal_details", parameters);
+            connection.closeConnection();
+            return dataTable;
+
+        }
+
+        public DataTable select_Journal_hdr(int acc_no)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@j_no", SqlDbType.Int) { Value = acc_no }
+            };
+            connection.openConnection();
+            DataTable dataTable = connection.selectData("select_specific_journal_hdr", parameters);
+            connection.closeConnection();
+            return dataTable;
+        }
+
     }
 }
