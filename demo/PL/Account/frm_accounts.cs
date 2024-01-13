@@ -1,4 +1,8 @@
-﻿using demo.DAL;
+﻿using Bunifu.Framework.UI;
+using Bunifu.UI.WinForms.BunifuTextbox;
+using demo.DAL;
+using demo.PL.Message;
+using demo.PL.Users;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +17,7 @@ namespace demo.PL.Accounts
 {
     public partial class frm_accounts : Form
     {
-        BL.Account.cls_accounts Accounts = new BL.Account.cls_accounts();
+        private readonly BL.Account.cls_accounts Accounts = new BL.Account.cls_accounts();
 
         public frm_accounts()
         {
@@ -37,7 +41,7 @@ namespace demo.PL.Accounts
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error loading dropdown lists: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                HandleError($"Error loading dropdown lists: {ex.Message}");
             }
         }
 
@@ -58,13 +62,13 @@ namespace demo.PL.Accounts
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error creating nodes: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                HandleError($"Error creating nodes: {ex.Message}");
             }
         }
 
         private TreeNode CreateNode(DataRowView dataRowView)
         {
-            TreeNode treeNode = new TreeNode($"{dataRowView["acc_no"]} {dataRowView["acc_aname"]}");
+            TreeNode treeNode = new TreeNode($"{dataRowView["acc_no"]} {dataRowView["acc_name"]}");
             treeNode.Tag = dataRowView["acc_no"].ToString();
             return treeNode;
         }
@@ -85,30 +89,30 @@ namespace demo.PL.Accounts
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error adding child nodes: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                HandleError($"Error adding child nodes: {ex.Message}");
             }
         }
 
         private void tr_account_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            txt_accNo.Text = tr_account.SelectedNode.Tag?.ToString();
+            txt_accNo.Text = tr_account.SelectedNode?.Tag?.ToString();
         }
 
         private void txt_accNo_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                DataTable dt = Accounts.get_Account(Convert.ToInt32(txt_accNo.Text));
-                if (dt.Rows.Count > 0)
+                if (int.TryParse(txt_accNo.Text, out int no))
                 {
-                    txt_acc_parent_no.Text = dt.Rows[0]["acc_parent_no"].ToString();
-                    txt_acc_name.Text = dt.Rows[0]["acc_aname"].ToString();
-                    txt_acc_level.Text = dt.Rows[0]["acc_level"].ToString();
-                    txt_acc_debit.Text = dt.Rows[0]["acc_debit"].ToString();
-                    txt_acc_credit.Text = dt.Rows[0]["acc_credit"].ToString();
-                    txt_acc_balance.Text = dt.Rows[0]["acc_balance"].ToString();
-                    cb_AccType.SelectedValue = dt.Rows[0]["acc_type"].ToString();
-                    cb_report.SelectedValue = dt.Rows[0]["acc_report"].ToString();
+                    DataTable dt = Accounts.get_Account(no);
+                    if (dt.Rows.Count > 0)
+                    {
+                        UpdateAccountControls(dt.Rows[0]);
+                    }
+                    else
+                    {
+                        ClearAccountControls();
+                    }
                 }
                 else
                 {
@@ -117,8 +121,20 @@ namespace demo.PL.Accounts
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error retrieving account details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                HandleError($"Error retrieving data: {ex.Message}");
             }
+        }
+
+        private void UpdateAccountControls(DataRow dataRow)
+        {
+            txt_acc_parent_no.Text = dataRow["acc_parent_no"].ToString();
+            txt_acc_name.Text = dataRow["acc_name"].ToString();
+            txt_acc_level.Text = dataRow["acc_level"].ToString();
+            txt_acc_debit.Text = dataRow["acc_debit"].ToString();
+            txt_acc_credit.Text = dataRow["acc_credit"].ToString();
+            txt_acc_balance.Text = dataRow["acc_balance"].ToString();
+            cb_AccType.SelectedValue = dataRow["acc_type"].ToString();
+            cb_report.SelectedValue = dataRow["acc_report"].ToString();
         }
 
         private void ClearAccountControls()
@@ -133,24 +149,168 @@ namespace demo.PL.Accounts
             cb_report.SelectedIndex = -1;
         }
 
-        private void btn_delete_Click(object sender, EventArgs e)
+        private bool CanDeleteAccount()
         {
-
-        }
-
-        private void btn_Edit_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_Save_Click(object sender, EventArgs e)
-        {
-
+            DataTable dataTable = Accounts.Account_Check(int.Parse(txt_accNo.Text));
+            DataTable dataTable1 = Accounts.journal_Check(int.Parse(txt_accNo.Text));
+            return dataTable.Rows.Count == 0 && dataTable1.Rows.Count == 0;
         }
 
         private void btn_new_Click(object sender, EventArgs e)
         {
+            txt_accNo.Enabled = true;
+            txt_accNo.Text = string.Empty;
+            ClearAccountControls();
+            btn_delete.Enabled = false;
+            btn_Edit.Enabled = false;
+            txt_accNo.Focus();
+            btn_Save.Enabled = true;
+        }
+
+        private void btn_Save_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (int.TryParse(txt_accNo.Text, out int accNo) &&
+                    int.TryParse(txt_acc_parent_no.Text, out int accParentNo) &&
+                    int.TryParse(cb_AccType.SelectedValue.ToString(), out int accType) &&
+                    int.TryParse(cb_report.SelectedValue.ToString(), out int accReport) &&
+                    int.TryParse(txt_acc_level.Text, out int accLevel) &&
+                    double.TryParse(txt_acc_debit.Text, out double accDebit) &&
+                    double.TryParse(txt_acc_credit.Text, out double accCredit) &&
+                    double.TryParse(txt_acc_balance.Text, out double accBalance))
+                {
+                    Accounts.Add_Account(accNo, accParentNo, txt_acc_name.Text, accType, accReport, accLevel, accDebit, accCredit, accBalance);
+                    MessageBox.Show("تم انشاء حساب جديد");
+                    CreateNodes();
+                    btn_Save.Enabled = false;
+                    txt_accNo.Enabled = false;
+                    btn_delete.Enabled = true;
+                    btn_Edit.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("Invalid input. Please enter valid numeric values.");
+                }
+            }
+            catch (Exception ex)
+            {
+                HandleError($"Error: {ex.Message}");
+            }
+        }
+
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (CanDeleteAccount() && MyMessageBox.ShowMessage("هل تريد الحزف ؟", "حذف ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (int.TryParse(txt_accNo.Text, out int acc_no))
+                    {
+                        Accounts.Delete_Account(acc_no);
+                        MessageBox.Show("تم حذف الحساب");
+                    }
+                    else
+                    {
+                        MyMessageBox.ShowMessage("يرجى تحديد ", "رساله", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    CreateNodes();
+                }
+                else
+                {
+                    MessageBox.Show("لا يمكن حذفه");
+                }
+            }
+            catch (Exception ex)
+            {
+                HandleError($"Error: {ex.Message}");
+            }
+        }
+
+        private void btn_Edit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (CanDeleteAccount() && int.TryParse(txt_accNo.Text, out int accNo) &&
+                    int.TryParse(txt_acc_parent_no.Text, out int accParentNo) &&
+                    int.TryParse(cb_AccType.SelectedValue.ToString(), out int accType) &&
+                    int.TryParse(cb_report.SelectedValue.ToString(), out int accReport) &&
+                    int.TryParse(txt_acc_level.Text, out int accLevel) &&
+                    double.TryParse(txt_acc_debit.Text, out double accDebit) &&
+                    double.TryParse(txt_acc_credit.Text, out double accCredit) &&
+                    double.TryParse(txt_acc_balance.Text, out double accBalance))
+                {
+                    Accounts.Edit_Account(accNo, accParentNo, txt_acc_name.Text, accType, accReport, accLevel, accDebit, accCredit, accBalance);
+                    MyMessageBox.ShowMessage("تم تعديل بنجاح", "عمليه ناجحه", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    CreateNodes();
+                    btn_Save.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("Invalid input. Please enter valid numeric values.");
+                }
+            }
+            catch (Exception ex)
+            {
+                HandleError($"Error: {ex.Message}");
+            }
+        }
+
+        private void HandleError(string errorMessage)
+        {
+            MessageBox.Show($"An error occurred: {errorMessage}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+
+        private void txt_accNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidateNumericInput(e);
+        }
+
+        private void txt_acc_debit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidateNumericInputWithDot(e);
+        }
+
+        private void txt_acc_credit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidateNumericInputWithDot(e);
 
         }
+
+        private void txt_acc_balance_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidateNumericInputWithDot(e);
+
+        }
+
+        
+
+        private void txt_acc_level_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidateNumericInput(e);
+        }
+
+        private void txt_acc_parent_no_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidateNumericInput(e);
+        }
+
+        private void ValidateNumericInputWithDot(KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8 && e.KeyChar != 46)
+            {
+                e.Handled = true;
+            }
+        }
+         private void ValidateNumericInput(KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8 )
+            {
+                e.Handled = true;
+            }
+        }
+
+
     }
 }
