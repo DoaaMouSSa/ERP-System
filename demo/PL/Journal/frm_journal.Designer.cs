@@ -2046,6 +2046,7 @@
             this.btn_Edit.TextMarginLeft = 0;
             this.btn_Edit.TextPadding = new System.Windows.Forms.Padding(0);
             this.btn_Edit.UseDefaultRadiusAndThickness = true;
+            this.btn_Edit.Click += new System.EventHandler(this.btn_Edit_Click);
             // 
             // btn_delete
             // 
@@ -2135,6 +2136,7 @@
             this.btn_delete.TextMarginLeft = 0;
             this.btn_delete.TextPadding = new System.Windows.Forms.Padding(0);
             this.btn_delete.UseDefaultRadiusAndThickness = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // frm_journal
             // 
