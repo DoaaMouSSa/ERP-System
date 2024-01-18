@@ -202,6 +202,12 @@
     <Compile Include="PL\Company\frm_Company.designer.cs">
       <DependentUpon>frm_Company.cs</DependentUpon>
     </Compile>
+    <Compile Include="PL\Currency\frm_Currency.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Currency\frm_Currency.Designer.cs">
+      <DependentUpon>frm_Currency.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\Dashboard\frm_Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PL\Company\frm_Company.resx">
       <DependentUpon>frm_Company.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Currency\frm_Currency.resx">
+      <DependentUpon>frm_Currency.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\Dashboard\frm_Main.resx">
       <DependentUpon>frm_Main.cs</DependentUpon>
