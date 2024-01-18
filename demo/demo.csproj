@@ -171,8 +171,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>acc_dbDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="BL\Account\cls_accounts.cs" />
-    <Compile Include="BL\Account\HelperFunction.cs" />
+    <Compile Include="BL\Accounts\cls_accounts.cs" />
+    <Compile Include="BL\Accounts\HelperFunction.cs" />
     <Compile Include="BL\company\Company.cs" />
     <Compile Include="BL\Currency\cls_Currency.cs" />
     <Compile Include="BL\Journal\cls_Journal.cs" />

@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -494,14 +495,20 @@ namespace demo.PL.Journal
                 if (DialogResult == DialogResult.Yes)
                 {
                     journalManager = new cls_Journal();
+                    cls_Journal cls_Journal = new cls_Journal();
                     int jo_no = Convert.ToInt32(txt_journal_no.Text);
                     journalManager.Journal_hdr_Delete(jo_no);
-                    //journalManager = new cls_Journal();
-                    journalManager.Journal_details_Delete(jo_no);
+                    cls_Journal.Journal_details_Delete(jo_no);
                     MyMessageBox.ShowMessage("تم المسح بنجاح", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     cal();
                     cleaning();
                     dgv_Journal.Rows.Clear();
+                    txt_journal_no.Text = string.Empty;
+                    txt_JNotes.Text = string.Empty;
+                    cb_post.Checked = false;
+                    rb_general.Checked = true;
+                    txt_search.Text = string.Empty;
+                    db_Jdate.Value = DateTime.Now;
                 }
             }
             else
@@ -511,5 +518,22 @@ namespace demo.PL.Journal
            
             
         }
+
+        private void txt_acc_no_KeyUp(object sender, KeyEventArgs e)
+        {
+            BL.Account.cls_accounts cls_Accounts = new BL.Account.cls_accounts();
+            if (txt_acc_no.Text != "")
+            {
+                int acc_no = Convert.ToInt32(txt_acc_no.Text);
+                var acc_name = cls_Accounts.getAccName(acc_no);
+                txt_acc_name.Text = acc_name.ToString();
+            }
+            if (txt_acc_no.Text == string.Empty)
+            {
+                txt_acc_name.Text = string.Empty;
+            }
+        }
+
+        
     }
 }

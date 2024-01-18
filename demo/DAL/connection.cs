@@ -74,5 +74,32 @@ namespace demo.DAL
             return dt;  
         }
         //method to execute query
+
+        public string selectStringValue(string sp, SqlParameter data)
+        {
+
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = sp;
+            cmd.Connection = connect;
+            //cmd.Parameters.AddWithValue("@acc_no",1);
+
+            cmd.Parameters.Add(data);
+            //var returnParameter= cmd.Parameters.Add(data);
+            // @ReturnVal could be any name
+            //var returnParameter  = cmd.Parameters.Add("@str", SqlDbType.NVarChar,100);
+            //returnParameter.Direction = ParameterDirection.ReturnValue;
+            //cmd.CommandType = CommandType.StoredProcedure;
+            //SqlParameter retval = new SqlParameter("@str", SqlDbType.NVarChar, 100);
+            //cmd.Parameters.Add(retval);
+            //retval.Direction = ParameterDirection.ReturnValue;
+            cmd.Parameters.Add("@str", SqlDbType.NVarChar, 100).Direction = ParameterDirection.Output;
+
+            //SqlParameter result = cmd.Parameters.Add(new SqlParameter("@str", SqlDbType.NVarChar, 100));
+            //result.Direction = ParameterDirection.ReturnValue;
+            cmd.ExecuteNonQuery();
+            string result = cmd.Parameters["@str"].Value.ToString();
+
+            return result;
+        }
     }
 }
